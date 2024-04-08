@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1e272e; /* Fondo azul oscuro */
+    color: white; /* Color de texto blanco */
+    font-family: Arial, sans-serif; /* Fuente por defecto */
+}
+
+#titulo {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
+    font-size: 60px; /* Tamaño de fuente grande */
+    color: white; /* Color de fuente blanco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Transforma el texto a mayúsculas */
+    text-align: center; /*Centra */
+    margin-bottom: 40px; /* Agrega un margen inferior de 40px */
+}
+
+
+.en-linea {
+    text-align: center; /* centra los elementos hijos horizontalmente */
+}
+
+.hipervinculo {
+    text-align: center; /* centra el texto */
+    color: white; /* color de fuente = blanco */
+    font-weight: bold; /* negrita */
+    text-decoration: none; /* saca el subrayado */
+    margin-bottom: 25px; /* margen inferior de 25px */
+    margin: 0 15px; /* margen horizontal de 15px, entre hipervínculos */
+}
+
+.hipervinculo:hover {
+    opacity: 0.7; /* al pasar el mouse, reduce opacidad */
+}
+
+.logo img {
+    width: 600px; /* Ancho*/
+    height: auto; /* Altura ajustada automáticamente para mantener la proporción */
+    transition: transform 0.3s ease; /* Agrega una transición suave al efecto de transformación */
+    display: block; /* Para centrar horizontalmente la imagen */
+    margin: 0 auto; /* Para centrar horizontalmente la imagen */
+    border-radius: 50%; /* Agrega un borde redondeado a la imagen */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra alrededor de la imagen */
+}
+
+
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el cursor */
+}
+
+

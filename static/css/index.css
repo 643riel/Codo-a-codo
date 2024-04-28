@@ -1,3 +1,4 @@
+/* básico para todas las pag */
 * {
     margin: 0;
     padding: 0;
@@ -54,4 +55,4 @@ body {
     transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el cursor */
 }
 
-
+/* -------------------------------- */

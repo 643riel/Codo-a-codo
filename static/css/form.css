@@ -1,0 +1,112 @@
+/* básico para todas las mag */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1e272e; /* Fondo azul oscuro */
+    color: white; /* Color de texto blanco */
+    font-family: Arial, sans-serif; /* Fuente por defecto */
+}
+
+#titulo {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
+    font-size: 60px; /* Tamaño de fuente grande */
+    color: white; /* Color de fuente blanco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Transforma el texto a mayúsculas */
+    text-align: center; /*Centra */
+    margin-bottom: 40px; /* Agrega un margen inferior de 40px */
+}
+
+
+.en-linea {
+    text-align: center; /* centra los elementos hijos horizontalmente */
+}
+
+.hipervinculo {
+    text-align: center; /* centra el texto */
+    color: white; /* color de fuente = blanco */
+    font-weight: bold; /* negrita */
+    text-decoration: none; /* saca el subrayado */
+    margin-bottom: 25px; /* margen inferior de 25px */
+    margin: 0 15px; /* margen horizontal de 15px, entre hipervínculos */
+}
+
+.hipervinculo:hover {
+    opacity: 0.7; /* al pasar el mouse, reduce opacidad */
+}
+
+.logo img {
+    width: 600px; /* Ancho*/
+    height: auto; /* Altura ajustada automáticamente para mantener la proporción */
+    transition: transform 0.3s ease; /* Agrega una transición suave al efecto de transformación */
+    display: block; /* Para centrar horizontalmente la imagen */
+    margin: 0 auto; /* Para centrar horizontalmente la imagen */
+    border-radius: 50%; /* Agrega un borde redondeado a la imagen */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra alrededor de la imagen */
+}
+
+
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el cursor */
+}
+
+/* -------------------------------- */
+
+/* Estilos para el formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    max-width: 60%; /* Anchura máxima del contenedor */
+    margin: 20px auto; /* Margen superior e inferior de 20px y centrado horizontal */
+    padding: 20px; /* Espaciado interno */
+    background-color: #34495e; /* Color de fondo del contenedor */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+
+/* Estilos para el formulario dentro del contenedor */
+form {
+    /* margin: 20px; /* 20px en todas las direcciones*/
+    margin: 20px 40px 20px 20px; /* arriba, derecha, abajo, izquierda */
+    max-width: 100%; /* Ancho máximo del formulario */
+    padding: 0; /* Elimina el relleno del formulario */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+}

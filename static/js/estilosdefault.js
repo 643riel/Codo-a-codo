@@ -70,7 +70,6 @@ function agregarEstilosCSS() {
     `;
 
     var estilo = document.createElement('style');
-    estilo.type = 'text/css';
 
     if (estilo.styleSheet) {
         estilo.styleSheet.cssText = estilosCSS;

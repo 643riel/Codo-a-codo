@@ -21,46 +21,44 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!/^[a-zA-Z]+$/.test(nombre)) {
             isValid = false;
             nombreInput.classList.add('invalid');
-            nombreInput.style.color = 'red'; // Cambiar color de texto a rojo
+            nombreInput.style.color = 'red'; // Cambiar color de texto a rojo. En CSS está el selector de .invalid
         } else {
             nombreInput.classList.remove('invalid');
-            nombreInput.style.color = 'black'; // Cambiar color de texto a negro
+            nombreInput.style.color = 'black'; // Cambiar color de texto a negro. Al final no lo definí en CSS para que quede con el color que tenía
         }
 
         // Validación del apellido
         if (!/^[a-zA-Z]+$/.test(apellido)) {
             isValid = false;
             apellidoInput.classList.add('invalid');
-            apellidoInput.style.color = 'red'; // Cambiar color de texto a rojo
+            apellidoInput.style.color = 'red'; 
         } else {
             apellidoInput.classList.remove('invalid');
-            apellidoInput.style.color = 'black'; // Cambiar color de texto a negro
+            apellidoInput.style.color = 'black'; 
         }
 
         // Validación del correo electrónico
         if (!/\S+@\S+\.\S+/.test(email)) {
             isValid = false;
             emailInput.classList.add('invalid');
-            emailInput.style.color = 'red'; // Cambiar color de texto a rojo
+            emailInput.style.color = 'red'; 
         } else {
             emailInput.classList.remove('invalid');
-            emailInput.style.color = 'black'; // Cambiar color de texto a negro
+            emailInput.style.color = 'black'; 
         }
 
         // Validación del mensaje vacío
         if (mensaje === '') {
             isValid = false;
             mensajeInput.classList.add('invalid');
-            mensajeInput.style.color = 'red'; // Cambiar color de texto a rojo
+            mensajeInput.style.color = 'red';
         } else {
             mensajeInput.classList.remove('invalid');
-            mensajeInput.style.color = 'black'; // Cambiar color de texto a negro
+            mensajeInput.style.color = 'black';
         }
 
-        // Si el formulario es válido, puedes enviar los datos
         if (isValid) {
-            // Aquí puedes agregar código para enviar los datos del formulario a un servidor
-            // Por ejemplo, podrías utilizar Fetch API o AJAX para enviar los datos a un servidor PHP
+            // agregar funcionalidad, si es válido, enviarlo
             console.log('Formulario válido. Enviando datos...');
         } else {
             console.log('Formulario inválido. Por favor, corrija los errores.');

@@ -21,24 +21,40 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!/^[a-zA-Z]+$/.test(nombre)) {
             isValid = false;
             nombreInput.classList.add('invalid');
+            nombreInput.style.color = 'red'; // Cambiar color de texto a rojo
         } else {
             nombreInput.classList.remove('invalid');
+            nombreInput.style.color = 'black'; // Cambiar color de texto a negro
         }
 
         // Validación del apellido
         if (!/^[a-zA-Z]+$/.test(apellido)) {
             isValid = false;
             apellidoInput.classList.add('invalid');
+            apellidoInput.style.color = 'red'; // Cambiar color de texto a rojo
         } else {
             apellidoInput.classList.remove('invalid');
+            apellidoInput.style.color = 'black'; // Cambiar color de texto a negro
         }
 
         // Validación del correo electrónico
         if (!/\S+@\S+\.\S+/.test(email)) {
             isValid = false;
             emailInput.classList.add('invalid');
+            emailInput.style.color = 'red'; // Cambiar color de texto a rojo
         } else {
             emailInput.classList.remove('invalid');
+            emailInput.style.color = 'black'; // Cambiar color de texto a negro
+        }
+
+        // Validación del mensaje vacío
+        if (mensaje === '') {
+            isValid = false;
+            mensajeInput.classList.add('invalid');
+            mensajeInput.style.color = 'red'; // Cambiar color de texto a rojo
+        } else {
+            mensajeInput.classList.remove('invalid');
+            mensajeInput.style.color = 'black'; // Cambiar color de texto a negro
         }
 
         // Si el formulario es válido, puedes enviar los datos

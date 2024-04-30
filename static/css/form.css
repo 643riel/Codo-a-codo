@@ -33,7 +33,7 @@ button[type="submit"]:hover {
 /* Estilos para el contenedor del formulario */
 .form-container {
     max-width: 60%; /* Anchura máxima del contenedor */
-    margin: 20px auto; /* Margen superior e inferior de 20px y centrado horizontal */
+    margin: 10px auto; /* Margen superior e inferior de 20px y centrado horizontal */
     padding: 20px; /* Espaciado interno */
     background-color: #34495e; /* Color de fondo del contenedor */
     border-radius: 10px; /* Borde redondeado */

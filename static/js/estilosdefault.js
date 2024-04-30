@@ -47,7 +47,7 @@ function agregarEstilosCSS() {
         }
 
         .descripcion {
-            margin-top: 20px; /* Margen superior de 20px */
+            margin-top: 10px; /* Margen superior de 20px */
             background-color: #2c3e50; /* Color de fondo */
             color: #ffffff; /* Color de texto blanco */
             padding: 20px; /* Espaciado interno */

@@ -28,8 +28,8 @@ var cardContainer = document.getElementById('card-container');
 // Crear cards y agregarlas al contenedor
 var cards = [
     createCard('Cerveza artesanal alemana', '../static/img/artesanal.jpg'),
-    createCard('Otra descripción', 'otra-imagen.jpg'),
-    createCard('Descripción de ejemplo', 'ejemplo.jpg'),
+    createCard('Ginebra alemana', '../static/img/gin2.jpg'),
+    createCard('Licor aleman', '../static/img/licor-aleman.jpg'),
     createCard('Descripción de ejemplo2', 'ejemplo.jpg')
 ];
 

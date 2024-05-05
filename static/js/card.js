@@ -39,7 +39,7 @@ var cards = [
     createCard('Licor aleman', '../static/img/licor-aleman.jpg', ' Desde su creación en la mística Selva Negra de Alemania, Jägermeister ha cautivado a los paladares más exigentes con su distintivo sabor a base de hierbas y especias. Sumérgete en el emblemático mundo de Jägermeister, donde la tradición se encuentra con la innovación en cada gota:<br><br>Shot: US$7 <br><br> Botella Jägermeister: US$35'),
     createCard('Salchichas alemanas', '../static/img/salchicha.jpg', 'Las salchichas alemanas son una deliciosa tradición culinaria que ha trascendido fronteras y conquistado paladares en todo el mundo. Con su distintivo sabor ahumado y su textura jugosa, estas salchichas son el epítome de la excelencia gastronómica alemana:<br><br>Salchichas alemanas al vino: US$15<br><br>Hot Dog: US$10'),
     createCard('Choripan', '../static/img/chori.jpg', 'Originarios de Argentina, estos deliciosos bocados combinan la intensidad de la carne de chorizo con la suavidad del pan criollo. Cada mordisco es una fiesta para los sentidos, con el aroma tentador de las especias y el sabor ahumado de la carne a la parrilla'),
-    createCard('Descripción de ejemplo2', 'ejemplo.jpg'),
+    createCard('Tabla de fiambres', '../static/img/picada.jpg', 'En nuestra tabla de fiambres, te invitamos a disfrutar de una selección cuidadosamente elaborada de los más exquisitos embutidos y quesos que nuestra tierra tiene para ofrecer. Desde el auténtico salame argentino hasta el sabor intenso del queso criollo, cada bocado es un viaje sensorial que te transportará a las pampas argentinas:'),
 ];
 
 cards.forEach(function(card) {

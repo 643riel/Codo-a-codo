@@ -18,7 +18,9 @@
 }
 
 .card .description {
-    font-size: 18px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -29,11 +31,13 @@
 }
 
 .card .price{ /*hago una nueva llamada de clase para ajustar el texto bajo la img */
+    font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
     text-align: justify;
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
+    color:floralwhite;
 }
 
 /* Estilos para celulares y tablets */

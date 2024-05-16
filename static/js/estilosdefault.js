@@ -67,6 +67,18 @@ function agregarEstilosCSS() {
             font-size: 18px; /* Tamaño de fuente */
             margin-bottom: 20px; /* Margen inferior */
         }
+
+        /* FOOTER */
+        #footer {
+            text-align: center; /* Centra el texto del footer */
+            padding: 20px; /* Añade espaciado alrededor del contenido del footer */
+            background-color: #2c3e50; /* Color de fondo */
+            color: #ffffff; /* Color de texto blanco */
+            font-size: 14px; /* Tamaño de fuente */
+            position: fixed; /* Fija el footer en la parte inferior de la ventana */
+            bottom: 0; /* Alinea el footer en la parte inferior de la ventana */
+            width: 100%; /* Establece el ancho al 100% */
+        }
     `;
 
     var estilo = document.createElement('style');

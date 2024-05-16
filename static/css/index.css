@@ -12,3 +12,22 @@
 .logo img:hover {
     transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el cursor */
 }
+
+.título {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center; /* Centra horizontalmente */
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
+    font-size: 100px; /* Tamaño de fuente grande */
+    color: white; /* Color de fuente blanco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+    letter-spacing: 4px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Transforma el texto a mayúsculas */
+    text-align: center; /*Centra */
+    margin-bottom: 20px; /* Agrega un margen inferior*/
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+}
+
+

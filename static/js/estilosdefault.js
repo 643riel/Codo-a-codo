@@ -34,19 +34,7 @@ function agregarEstilosCSS() {
         /* --------- */
 
         /* TEXTO */
-        #titulo {
-            width: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
-            font-size: 60px; /* Tamaño de fuente grande */
-            color: white; /* Color de fuente blanco */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
-            letter-spacing: 2px; /* Espaciado entre letras */
-            text-transform: uppercase; /* Transforma el texto a mayúsculas */
-            text-align: center; /*Centra */
-            margin-bottom: 40px; /* Agrega un margen inferior de 40px */
-        }
-
-        .descripcion {
+         .descripcion {
             margin-top: 10px; /* Margen superior de 20px */
             background-color: #2c3e50; /* Color de fondo */
             color: #ffffff; /* Color de texto blanco */
@@ -78,6 +66,28 @@ function agregarEstilosCSS() {
             position: fixed; /* Fija el footer en la parte inferior de la ventana */
             bottom: 0; /* Alinea el footer en la parte inferior de la ventana */
             width: 100%; /* Establece el ancho al 100% */
+        }
+
+        /* Estilos para el contenedor del título */
+        .titulo {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo{
+            width: 100px;
+            max-width: 100px;
+            height: auto;
+            border-color: bisque;
+            border-radius: 50%;
+            margin-left: 42%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px cyan;
+        }
+
+        h2{
+            text-align: center;
+            margin-top: 10px;
         }
     `;
 

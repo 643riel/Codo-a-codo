@@ -1,0 +1,38 @@
+.review-container {
+    margin: 100px; /* Margen superior de 100px */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Estilos para las tarjetas de reseña */
+.review-card {
+    border-radius: 20px;
+    background-color: #2c3e50; /* Color de fondo azul */
+    color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Margen entre tarjetas */
+    padding: 20px; /* Espaciado interno */
+    text-align: center;
+}
+
+.review-card .user-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.review-card .comment {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+/* Estilos para dispositivos móviles y tablets */
+@media only screen and (max-width: 768px) {
+    .review-card {
+        width: calc(100% - 40px); /* Ancho del 100% del contenedor menos el margen */
+    }
+}

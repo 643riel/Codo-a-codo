@@ -55,3 +55,25 @@ form {
     border: 1px solid red; /* Cambiar el borde del campo a rojo */
     color: red !important; /* Cambiar el color del texto a rojo */
 }
+
+#contactForm label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: floralwhite;
+}
+
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: bold;
+}

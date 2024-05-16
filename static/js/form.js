@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // agregar funcionalidad, si es válido, enviarlo
             console.log('Formulario válido. Enviando datos...');
         } else {
+            // Mostrar mensaje de error
+            errorMessage.style.display = 'block';
             console.log('Formulario inválido. Por favor, corrija los errores.');
         }
     });

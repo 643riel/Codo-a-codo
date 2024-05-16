@@ -39,9 +39,25 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
             </div>
-    
-            <button type="submit">Enviar</button>
 
+            <div class="form-group">
+                <label>¿Pregunta del mes: Qué tipo de bebida preferís?</label>
+                <div class="radio-group">
+                    <input type="radio" id="cerveza" name="bebida" value="cerveza" required>
+                    <label for="cerveza">Cerveza</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="vino" name="bebida" value="vino">
+                    <label for="vino">Vino</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="coctel" name="bebida" value="coctel">
+                    <label for="coctel">Cóctel</label>
+                </div>
+                </div>
+            </div>
+
+            <button type="submit">Enviar</button>
             <p id="errorMessage" style="display: none; color: red;"><br>Por favor, revise los campos resaltados en rojo.</p>
         </form>
     </div>

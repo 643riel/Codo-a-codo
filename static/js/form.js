@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const apellidoInput = document.getElementById('apellido');
         const emailInput = document.getElementById('email');
         const mensajeInput = document.getElementById('mensaje');
+        const bebidaInputs = document.getElementsByName('bebida');
 
         const nombre = nombreInput.value.trim();
         const apellido = apellidoInput.value.trim();
@@ -48,6 +49,21 @@ document.addEventListener('DOMContentLoaded', function() {
             addInvalidStyle(mensajeInput);
         } else {
             removeInvalidStyle(mensajeInput);
+        }
+
+        // Validación del radio button
+        let bebidaSelected = false;
+        bebidaInputs.forEach(input => {
+            if (input.checked) {
+                bebidaSelected = true;
+            }
+        });
+
+        if (!bebidaSelected) {
+            isValid = false;
+            bebidaInputs.forEach(input => addInvalidStyle(input));
+        } else {
+            bebidaInputs.forEach(input => removeInvalidStyle(input));
         }
 
         if (isValid) {

@@ -25,9 +25,9 @@
 
 .review-card .comment {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
+    font-size: 16px;
     margin-top: 10px;
-    text-align: justify;
+   /* text-align: justify; */
 }
 
 /* Estilos para dispositivos móviles y tablets */

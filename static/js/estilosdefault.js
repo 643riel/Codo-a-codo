@@ -51,9 +51,17 @@ function agregarEstilosCSS() {
         }
         
         .descripcion p {
-            text-align: justify; /* Alinea el texto justificado */
+            text-align: center; /* Alinea el texto justificado */
             font-size: 18px; /* Tamaño de fuente */
             margin-bottom: 20px; /* Margen inferior */
+        }
+
+        .parrafo-especial {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center; /* Alinea el texto justificado */
+            font-size: 22px; /* Tamaño de fuente */
+            margin-bottom: 20px; /* Margen inferior */
+            font-weight: bold;
         }
 
         /* FOOTER */
@@ -89,6 +97,19 @@ function agregarEstilosCSS() {
             text-align: center;
             margin-top: 10px;
         }
+
+        .titulo h2 {
+            /* Estilos que deseas aplicar solo al h2 dentro de la clase titulo */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            text-align: justify;
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: floralwhite;
+            font-weight: bold;
+        }
+        
     `;
 
     var estilo = document.createElement('style');

@@ -1,6 +1,8 @@
 .iframe{
     text-align: center;
     height: 50%;
+    margin: 10px; /* Margen entre tarjetas */
+    padding: 5px; /* Espaciado interno */
 }
 
 iframe{

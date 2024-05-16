@@ -18,7 +18,7 @@
     /* align-items: center; */
     justify-content: center; /* Centra horizontalmente */
     width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
+    font-family: 'Courier New', Courier, monospace;
     font-size: 100px; /* Tamaño de fuente grande */
     color: white; /* Color de fuente blanco */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */

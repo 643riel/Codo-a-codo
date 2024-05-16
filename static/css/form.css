@@ -51,9 +51,8 @@ form {
     border: none; /* Sin borde */
 }
 
-.invalid {
-    border: 1px solid red; /* Cambiar el borde del campo a rojo */
-    color: red !important; /* Cambiar el color del texto a rojo */
+#contactForm .invalid {
+    border: 2px solid red;
 }
 
 #contactForm label {

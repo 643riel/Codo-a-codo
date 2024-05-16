@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
+    const errorMessage = document.getElementById('errorMessage');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Evita el envío del formulario por defecto
@@ -20,50 +21,62 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validación del nombre
         if (!/^[a-zA-Z]+$/.test(nombre)) {
             isValid = false;
-            nombreInput.classList.add('invalid');
-            nombreInput.style.color = 'red'; // Cambiar color de texto a rojo. En CSS está el selector de .invalid
+            addInvalidStyle(nombreInput);
         } else {
-            nombreInput.classList.remove('invalid');
-            nombreInput.style.color = 'black'; // Cambiar color de texto a negro. Al final no lo definí en CSS para que quede con el color que tenía
+            removeInvalidStyle(nombreInput);
         }
 
         // Validación del apellido
         if (!/^[a-zA-Z]+$/.test(apellido)) {
             isValid = false;
-            apellidoInput.classList.add('invalid');
-            apellidoInput.style.color = 'red'; 
+            addInvalidStyle(apellidoInput);
         } else {
-            apellidoInput.classList.remove('invalid');
-            apellidoInput.style.color = 'black'; 
+            removeInvalidStyle(apellidoInput);
         }
 
         // Validación del correo electrónico
         if (!/\S+@\S+\.\S+/.test(email)) {
             isValid = false;
-            emailInput.classList.add('invalid');
-            emailInput.style.color = 'red'; 
+            addInvalidStyle(emailInput);
         } else {
-            emailInput.classList.remove('invalid');
-            emailInput.style.color = 'black'; 
+            removeInvalidStyle(emailInput);
         }
 
         // Validación del mensaje vacío
         if (mensaje === '') {
             isValid = false;
-            mensajeInput.classList.add('invalid');
-            mensajeInput.style.color = 'red';
+            addInvalidStyle(mensajeInput);
         } else {
-            mensajeInput.classList.remove('invalid');
-            mensajeInput.style.color = 'black';
+            removeInvalidStyle(mensajeInput);
         }
 
         if (isValid) {
             // agregar funcionalidad, si es válido, enviarlo
             console.log('Formulario válido. Enviando datos...');
+            resetFormStyles();
         } else {
             // Mostrar mensaje de error
             errorMessage.style.display = 'block';
             console.log('Formulario inválido. Por favor, corrija los errores.');
         }
     });
+
+    // Función para añadir estilos de campo inválido
+    function addInvalidStyle(element) {
+        element.classList.add('invalid');
+    }
+
+    // Función para remover estilos de campo inválido
+    function removeInvalidStyle(element) {
+        element.classList.remove('invalid');
+    }
+
+    // Función para resetear los estilos del formulario
+    function resetFormStyles() {
+        const inputs = form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            removeInvalidStyle(input);
+        });
+        errorMessage.style.display = 'none';
+    }
 });

@@ -44,6 +44,9 @@
 @media only screen and (max-width: 768px) {
     .card {
         width: calc(100% - 2%); /* Ancho de la card del 100% del ancho de la ventana */
+        display: flex; /* Agrega display flex */
+        flex-direction: column; /* Establece la dirección de flexión a columna */
+        /* justify-content: space-between; /* Distribuye el espacio verticalmente */ 
     }
     .card .image {
         max-width: 100%;

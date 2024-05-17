@@ -1,5 +1,6 @@
 .card-container {
     margin: 100px; /* Margen superior de 20px */
+    align-items: center;
 }
 
 /* Estilos para las cards */
@@ -32,6 +33,7 @@
     max-width: 100%;
     height: auto;
     border-radius: 20px; /* Redondear la imagen */
+    margin: 0 auto; /* Centra horizontalmente la imagen */
 }
 
 .card .price{ /*hago una nueva llamada de clase para ajustar el texto bajo la img */

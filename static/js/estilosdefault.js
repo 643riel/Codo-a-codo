@@ -120,6 +120,7 @@ function agregarEstilosCSS() {
                 flex-direction: column; /* Cambia la dirección del flexbox a columna */
                 justify-content: center; /* Centra verticalmente */
                 align-items: center; /* Centra horizontalmente */
+                margin-bottom: 60px; /* Para que el footer no quede mal*/
             }
 
             .h2 {

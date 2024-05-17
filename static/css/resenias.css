@@ -33,12 +33,15 @@
 /* Estilos para dispositivos móviles y tablets */
 @media only screen and (max-width: 768px) {
     .review-card {
-        width: calc(100% - 40px); /* Ancho del 100% del contenedor menos el margen */
+        width: calc(95% - 40px); /* Ancho del 100% del contenedor menos el margen */
+        justify-content: center; /* Centra verticalmente */
+        align-items: center; /* Centra horizontalmente */
     }
 }
 
 p {
     text-align: center;
     margin-top: 10px;
+    justify-content: center; /* Centra verticalmente */
 }
 

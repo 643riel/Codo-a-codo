@@ -23,6 +23,11 @@
 
     <div class="form-container"> <!-- Contenedor del formulario -->
         <form id="contactForm" onsubmit="sendMail(); return false;" method="POST">
+
+            <p> 
+                Para el formulario de contacto, se ha decidido que inicialmente se abrirá la aplicación de correo local (Outlook, Gmail, etc.) para enviar el form. 
+                Luego con Python se implementará de una manera más eficiente. Todos los campos se validan. 
+            </p>
             
             <div class="form-group">
                 <label for="nombre">Nombre:</label>

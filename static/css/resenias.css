@@ -36,3 +36,9 @@
         width: calc(100% - 40px); /* Ancho del 100% del contenedor menos el margen */
     }
 }
+
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+

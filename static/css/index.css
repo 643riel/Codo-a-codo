@@ -50,4 +50,12 @@
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra de texto */
 }
 
+@media (max-width: 600px) {
+    .descripcion2 > h2 {
+        font-size: 18px; /* Reduce el tamaño de fuente */
+        padding: 15px; /* Reduce el espaciado interno */
+        letter-spacing: 2px; /* Reduce el espaciado entre letras */
+    }
+}
+
 

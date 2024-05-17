@@ -1,14 +1,10 @@
-// formv1.js es la versión vieja sin la lógica del mail, la dejo en git x las dudas
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const errorMessage = document.getElementById('errorMessage');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Evita el envío del formulario por defecto
-        sendMail();
-    });
 
-    function sendMail() {
         // Validaciones
         const nombreInput = document.getElementById('nombre');
         const apellidoInput = document.getElementById('apellido');
@@ -57,11 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validación del radio button
         let bebidaSelected = false;
-        let bebidaSeleccionada = '';
         bebidaInputs.forEach(input => {
             if (input.checked) {
                 bebidaSelected = true;
-                bebidaSeleccionada = input.value;
             }
         });
 
@@ -73,25 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (isValid) {
-            // Construir el cuerpo del correo
-            const subject = `Formulario de Contacto: ${nombre} ${apellido}`;
-            const body = `Nombre: ${nombre}\nApellido: ${apellido}\nEmail: ${email}\nMensaje: ${mensaje}\nBebida preferida: ${bebidaSeleccionada}`;
-
-            // Crear el enlace mailto con la dirección de correo wunder.3ar.ar@gmail.com
-            const mailtoLink = `mailto:wunder.3ar.ar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            // Abrir Gmail (o el cliente de correo predeterminado)
-            window.location.href = mailtoLink;
-
-            // Mostrar mensaje de éxito o resetear el formulario
-            alert('¡El correo electrónico se ha preparado correctamente!');
-            form.reset(); // Resetear el formulario después de enviar el correo
+            // agregar funcionalidad, si es válido, enviarlo
+            console.log('Formulario válido. Enviando datos...');
+            resetFormStyles();
         } else {
             // Mostrar mensaje de error
             errorMessage.style.display = 'block';
             console.log('Formulario inválido. Por favor, corrija los errores.');
         }
-    }
+    });
 
     // Función para añadir estilos de campo inválido
     function addInvalidStyle(element) {

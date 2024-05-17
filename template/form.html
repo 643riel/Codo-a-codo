@@ -22,7 +22,8 @@
     </section>
 
     <div class="form-container"> <!-- Contenedor del formulario -->
-        <form id="contactForm" action="#" method="POST">
+        <form id="contactForm" onsubmit="sendMail(); return false;" method="POST">
+            
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>

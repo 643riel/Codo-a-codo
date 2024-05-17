@@ -80,16 +80,18 @@ function agregarEstilosCSS() {
         .titulo {
             display: flex;
             align-items: center;
+            justify-content: center; /* Centra horizontalmente */
         }
 
         #logo{
+            display: flex;
             width: 100px;
             max-width: 100px;
             height: auto;
             border-color: bisque;
             border-radius: 50%;
-            margin-left: 42%;
-            margin-right: 10px;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
             box-shadow: 0 0 10px cyan;
         }
 
@@ -99,7 +101,7 @@ function agregarEstilosCSS() {
         }
 
         .titulo h2 {
-            /* Estilos que deseas aplicar solo al h2 dentro de la clase titulo */
+            /* Estilos solo en h2 del titulo */
             font-family: 'Courier New', Courier, monospace;
             font-size: 30px;
             text-align: justify;
@@ -108,8 +110,70 @@ function agregarEstilosCSS() {
             margin-right: 20px;
             color: floralwhite;
             font-weight: bold;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
         }
+
+        @media (max-width: 600px) {
+            body {
+                display: flex; /* Utiliza flexbox para centrar verticalmente */
+                flex-direction: column; /* Cambia la dirección del flexbox a columna */
+                justify-content: center; /* Centra verticalmente */
+                align-items: center; /* Centra horizontalmente */
+            }
+
+            .h2 {
+                font-size: 16px; /* Reduce el tamaño de fuente */
+                padding: 15px; /* Reduce el espaciado interno */
+                letter-spacing: 2px; /* Reduce el espaciado entre letras */
+                text-align: center;
+            }
+
+            #footer {
+                padding: 15px; /* Ajusta el espaciado*/
+                font-size: 12px; /* Reduce el tamaño de fuente */
+            }
+
+            .header {
+                text-align: center; /* Centra el contenido del header horizontalmente */
+            }
         
+            .titulo {
+                 display: flex;
+                 flex-direction: column;
+                 align-items: center; /* Centra los elementos horizontalmente */
+                 width: 100%; /* Ocupa toda la pantalla */
+                 margin: 0; /* Elimina cualquier margen */
+                 text-align: center; /* Centra el texto horizontalmente */
+            }
+            
+            .descripcion {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Centra los elementos horizontalmente */
+                justify-content: center; /* Centra los elementos verticalmente */
+                margin-top: 10px;
+                margin-bottom: 10px;
+                background-color: #2c3e50;
+                color: #ffffff;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+                width:90%;
+            }
+        
+            .descripcion h2,
+            .descripcion p,
+            .parrafo-especial {
+                margin-bottom: 10px; /* Reduce el margen inferior */
+            }
+             
+            .logo img {
+                width: 100%; /* Cambia el ancho a 100% */
+                max-width: 400px; /* Ancho máximo de 400px */
+            }
+        }
+       
     `;
 
     var estilo = document.createElement('style');

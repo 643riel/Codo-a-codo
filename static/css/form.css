@@ -93,3 +93,12 @@ form {
     text-align: center;
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+    .form-container {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0; /* Remueve el borde redondeado para que ocupe toda la pantalla */
+        box-shadow: none; /* Remueve la sombra */
+    }
+}

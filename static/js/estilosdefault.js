@@ -42,6 +42,10 @@ function agregarEstilosCSS() {
             border-radius: 20px; /* Borde redondeado */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Sombra */
         }
+
+        .descripcion:hover {
+            background-color: #34495e; /* Cambia el color de fondo al pasar el cursor sobre el footer */
+        }
         
         .descripcion h2 {
             text-align: center; /* Centra el título */
@@ -66,15 +70,23 @@ function agregarEstilosCSS() {
 
         /* FOOTER */
         #footer {
-            text-align: center; /* Centra el texto del footer */
-            padding: 20px; /* Añade espaciado alrededor del contenido del footer */
-            background-color: #2c3e50; /* Color de fondo */
-            color: #ffffff; /* Color de texto blanco */
-            font-size: 14px; /* Tamaño de fuente */
-            position: fixed; /* Fija el footer en la parte inferior de la ventana */
-            bottom: 0; /* Alinea el footer en la parte inferior de la ventana */
-            width: 100%; /* Establece el ancho al 100% */
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ffffff;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.1); /* Agrega una sombra al footer */
+            transition: background-color 0.3s; /* Agrega una transición de color suave */
+            border-radius: 10px; /* Agrega bordes redondeados */
         }
+        
+        #footer:hover {
+            background-color: #34495e; /* Cambia el color de fondo al pasar el cursor sobre el footer */
+        }
+        
 
         /* Estilos para el contenedor del título */
         .titulo {

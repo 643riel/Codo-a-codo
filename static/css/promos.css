@@ -17,6 +17,10 @@
     width: calc(33% - 3%); /* Ancho de cada card */
 }
 
+.card:hover {
+    background-color: #34495e; /* Cambia el color de fondo al pasar el cursor sobre el footer */
+}
+
 .card .description {
     font-family:'Courier New', Courier, monospace;
     font-weight: bolder;

@@ -185,8 +185,16 @@ function agregarEstilosCSS() {
                 width: 100%; /* Cambia el ancho a 100% */
                 max-width: 400px; /* Ancho máximo de 400px */
             }
-        }
-       
+        }     
+        
+        @media (max-width: 1079px) {
+            body {
+                display: flex; /* Utiliza flexbox para centrar verticalmente */
+                flex-direction: column; /* Cambia la dirección del flexbox a columna */
+                justify-content: center; /* Centra verticalmente */
+                align-items: center; /* Centra horizontalmente */
+                margin-bottom: 60px; /* Para que el footer no quede mal*/
+            }
     `;
 
     var estilo = document.createElement('style');

@@ -15,7 +15,7 @@
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    width: calc(33% - 2%); /* Modificado el cálculo del ancho para simplificar */
+    width: calc(33% - 1%); /* Modificado el cálculo del ancho para simplificar */
     max-width: 600px; /* Añadido para limitar el ancho máximo */
 }
 

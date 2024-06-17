@@ -1,6 +1,7 @@
 import os
 from sqlalchemy import create_engine
-from app import app, db, Promo, User, generate_password_hash, Review, ContactMessage
+from models import db, Promo, ContactMessage, User, Review, generate_password_hash
+from app import app
 
 # Función para ejecutar el archivo SQL
 def execute_sql_file(sql_file):

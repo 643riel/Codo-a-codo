@@ -1,8 +1,12 @@
 -- Iniciar sesión en MySQL como root
 -- mysql -u root -p
 
+START TRANSACTION;
+
+-- Eliminar la base de datos si existe
 DROP DATABASE IF EXISTS wunderbar;
 
+-- Crear la base de datos
 CREATE DATABASE wunderbar;
 
 -- Si el usuario no existe, crearlo
@@ -15,6 +19,7 @@ CREATE DATABASE wunderbar;
 
 USE wunderbar;
 
+-- Crear la tabla promos
 CREATE TABLE IF NOT EXISTS promos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     descripcion VARCHAR(255) NOT NULL,
@@ -22,8 +27,7 @@ CREATE TABLE IF NOT EXISTS promos (
     precio VARCHAR(500) NOT NULL
 );
 
--- select * from promos
-
+-- Crear la tabla contact_messages
 CREATE TABLE IF NOT EXISTS contact_messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
@@ -34,9 +38,8 @@ CREATE TABLE IF NOT EXISTS contact_messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- select * from contact_messages
-
-CREATE TABLE users (
+-- Crear la tabla users
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -44,12 +47,17 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- select * from users
-
 -- Crear la tabla reviews
-CREATE TABLE reviews (
+CREATE TABLE IF NOT EXISTS reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombreUsuario VARCHAR(255) NOT NULL,
     comentario TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+COMMIT;
+
+-- select * from promos;
+-- select * from contact_messages;
+-- select * from users;
+-- select * from reviews;

@@ -28,7 +28,7 @@ var reviewContainer = document.getElementById('review-container');
 fetch('http://localhost:5000/api/reviews')
     .then(response => response.json())
     .then(reviewsData => {
-        // Crear reseñas y agregarlas al contenedor
+        // Iterar reseñas y agregarlas al contenedor
         reviewsData.forEach(function(reviewData) {
             var reviewCard = createReviewCard(reviewData.nombreUsuario, reviewData.comentario);
             reviewContainer.appendChild(reviewCard);

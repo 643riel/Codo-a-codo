@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (isValid) {
-            // Enviar los datos al servidor Flask en el puerto 5000
+            // Enviar los datos al servidor Flask (en el puerto 5000)
             const formData = new FormData(form);
 
-            fetch('http://127.0.0.1:5000/api/contact', {  // Cambiado a puerto 5000
+            fetch('http://127.0.0.1:5000/api/contact', {
                 method: 'POST',
                 body: formData
             })
@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(result => {
                 if (result.message) {
                     alert('¡El mensaje se ha enviado correctamente!');
-                    form.reset(); // Resetear el formulario después de enviar el mensaje
+                    form.reset(); 
+                    // Resetear el formulario después de enviar el mensaje
                     // Ocultar el mensaje de error después de enviar correctamente
                     errorMessage.style.display = 'none';
                 } else {

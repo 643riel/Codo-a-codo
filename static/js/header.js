@@ -34,7 +34,8 @@ async function displayUserName() {
             } else {
                 // Si hay un nombre de usuario, actualizar el texto y la URL del enlace
                 loginLink.textContent = nombreUsuario.toUpperCase(); 
-                loginLink.href = '../templates/pagina_usuario.html'; // Cambiar la URL según la pantalla deseada para usuarios logueados
+                loginLink.href = '../templates/pagina_usuario.html'; 
+                // Si no es admin muestra pantalla de usuario común, para desloguerarse y alguna cosa más, dado que no está en el alcance del curso
             }
         } else {
             // Si no hay nombre de usuario, mostrar LOGIN
@@ -49,7 +50,7 @@ async function displayUserName() {
         if (nombreUsuario) {
             nombreUsuarioSpan.textContent = nombreUsuario.toUpperCase(); // Mostrar el nombre de usuario en mayúsculas si está logueado
         } else {
-            nombreUsuarioSpan.textContent = ''; // Mostrar nada si no esta logueado
+            nombreUsuarioSpan.textContent = ''; // Mostrar '' si no esta logueado
         }
     }
 }

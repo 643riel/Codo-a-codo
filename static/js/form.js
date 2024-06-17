@@ -1,14 +1,14 @@
-// formv1.js es la versión vieja sin la lógica del mail, la dejo en git x las dudas
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const errorMessage = document.getElementById('errorMessage');
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita el envío del formulario por defecto
-        sendMail();
-    });
+    // Obtener todos los inputs y textareas del formulario
+    const inputs = form.querySelectorAll('input, textarea');
 
-    function sendMail() {
+    // Función para validar y enviar el formulario
+    function sendForm(event) {
+        event.preventDefault(); // Evita el envío del formulario por defecto
+
         // Validaciones
         const nombreInput = document.getElementById('nombre');
         const apellidoInput = document.getElementById('apellido');
@@ -57,11 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validación del radio button
         let bebidaSelected = false;
-        let bebidaSeleccionada = '';
         bebidaInputs.forEach(input => {
             if (input.checked) {
                 bebidaSelected = true;
-                bebidaSeleccionada = input.value;
             }
         });
 
@@ -73,19 +71,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (isValid) {
-            // Construir el cuerpo del correo
-            const subject = `Formulario de Contacto: ${nombre} ${apellido}`;
-            const body = `Nombre: ${nombre}\nApellido: ${apellido}\nEmail: ${email}\nMensaje: ${mensaje}\nBebida preferida: ${bebidaSeleccionada}`;
+            // Enviar los datos al servidor Flask en el puerto 5000
+            const formData = new FormData(form);
 
-            // Crear el enlace mailto con la dirección de correo wunder.3ar.ar@gmail.com
-            const mailtoLink = `mailto:wunder.3ar.ar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            // Abrir Gmail (o el cliente de correo predeterminado)
-            window.location.href = mailtoLink;
-
-            // Mostrar mensaje de éxito o resetear el formulario
-            alert('¡El correo electrónico se ha preparado correctamente!');
-            form.reset(); // Resetear el formulario después de enviar el correo
+            fetch('http://127.0.0.1:5000/api/contact', {  // Cambiado a puerto 5000
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(result => {
+                if (result.message) {
+                    alert('¡El mensaje se ha enviado correctamente!');
+                    form.reset(); // Resetear el formulario después de enviar el mensaje
+                    // Ocultar el mensaje de error después de enviar correctamente
+                    errorMessage.style.display = 'none';
+                } else {
+                    alert('Error al enviar el mensaje: ' + result.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al enviar el mensaje.');
+            });
         } else {
             // Mostrar mensaje de error
             errorMessage.style.display = 'block';
@@ -103,12 +115,43 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.remove('invalid');
     }
 
-    // Función para resetear los estilos del formulario
-    function resetFormStyles() {
-        const inputs = form.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            removeInvalidStyle(input);
+    // Manejar el evento submit del formulario
+    form.addEventListener('submit', sendForm);
+
+    // Manejar el evento input en los campos para validar y actualizar estilos en tiempo real
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            validateField(input);
         });
-        errorMessage.style.display = 'none';
+    });
+
+    // Función para validar un campo específico y actualizar estilos
+    function validateField(field) {
+        const value = field.value.trim();
+        const isValid = validate(value, field);
+
+        if (isValid) {
+            removeInvalidStyle(field);
+            errorMessage.style.display = 'none'; // Ocultar el mensaje de error si es válido
+        } else {
+            addInvalidStyle(field);
+        }
     }
+
+    // Función general de validación para cada tipo de campo
+    function validate(value, field) {
+        switch (field.id) {
+            case 'nombre':
+            case 'apellido':
+                return /^[a-zA-Z]+$/.test(value);
+            case 'email':
+                return /\S+@\S+\.\S+/.test(value);
+            case 'mensaje':
+                return value !== '';
+            // Para los radio buttons, se valida en la función sendForm
+            default:
+                return true;
+        }
+    }
+
 });

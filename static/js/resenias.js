@@ -24,8 +24,8 @@ function createReviewCard(nombreUsuario, comentario) {
 // Obtener el contenedor de las reseñas
 var reviewContainer = document.getElementById('review-container');
 
-// Cargar el archivo JSON con las reseñas
-fetch('../static/js/reviews.json')
+// Cargar las reseñas desde la base de datos
+fetch('http://localhost:5000/api/reviews')
     .then(response => response.json())
     .then(reviewsData => {
         // Crear reseñas y agregarlas al contenedor
@@ -34,4 +34,4 @@ fetch('../static/js/reviews.json')
             reviewContainer.appendChild(reviewCard);
         });
     })
-    .catch(error => console.error('Error al cargar el archivo JSON:', error));
+    .catch(error => console.error('Error al cargar las reseñas desde la base de datos:', error));

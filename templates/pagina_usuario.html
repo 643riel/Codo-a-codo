@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+    <title>Página de Usuario</title>
+</head>
+<body>
+    <h1>Bienvenido, <span id="nombreUsuario"></span>!</h1>
+
+    <!-- Botón para cerrar sesión -->
+    <button id="logoutButton">Cerrar sesión</button>
+
+    <!-- Incluir cualquier otro contenido específico de la página de usuario aquí -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Verificar si el usuario está autenticado
+            fetch("http://127.0.0.1:5000/api/current_user", {
+                method: "GET",
+                credentials: "include"
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.username) {
+                    document.getElementById("nombreUsuario").textContent = data.username;
+                } else {
+                    window.location.href = "login.html"; // Redirigir a la página de inicio de sesión si no está autenticado
+                }
+            })
+            .catch(error => {
+                console.error("Error al verificar el usuario:", error);
+                window.location.href = "login.html"; // Redirigir a la página de inicio de sesión en caso de error
+            });
+
+            // Manejar el cierre de sesión
+            document.getElementById("logoutButton").addEventListener("click", function() {
+                fetch("http://127.0.0.1:5000/api/logout", {
+                    method: "POST",
+                    credentials: "include"
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = "../index.html"; // Redirigir a index
+                    } else {
+                        console.error("Error al cerrar sesión:", response.statusText);
+                    }
+                })
+                .catch(error => console.error("Error al cerrar sesión:", error));
+            });
+        });
+    </script>
+
+    <script src="../static/js/header.js"></script>
+    <script src="../static/js/estilosdefault.js"></script>
+</body>
+</html>

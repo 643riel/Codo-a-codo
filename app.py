@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_cors import CORS  # Importar CORS desde flask_cors
+from flask_cors import CORS
 from models import db, User
 from routes import routes
 from flask_login import LoginManager
@@ -30,7 +30,7 @@ def load_user(user_id):
 app.register_blueprint(routes)
 
 # Configurar CORS para permitir todas las solicitudes y credenciales
-CORS(app, supports_credentials=True)
+CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1:5500"}}, supports_credentials=True)
 
 if __name__ == '__main__':
     app.run(debug=True)

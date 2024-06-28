@@ -14,7 +14,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         },
         body: JSON.stringify(formData),
         credentials: 'include'  // Incluir credenciales en las solicitudes
-        // ESTO ES CLAVE PARA QUE ANDE
     })
     .then(response => {
         return response.json().then(data => {

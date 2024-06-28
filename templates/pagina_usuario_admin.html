@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/admin.css">
     <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
     <title>ADMIN</title>
 </head>
@@ -12,49 +13,74 @@
     <!-- Botón para cerrar sesión -->
     <button id="logoutButton">Cerrar sesión</button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Verificar si el usuario está autenticado
-            fetch("http://127.0.0.1:5000/api/current_user", {
-                method: "GET",
-                credentials: "include"
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.username) {
-                    document.getElementById("nombreUsuario").textContent = data.username;
-                } else {
-                    window.location.href = "login.html"; // Redirigir a la página de inicio de sesión si no está autenticado
-                }
-            })
-            .catch(error => {
-                console.error("Error al verificar el usuario:", error);
-                window.location.href = "login.html"; // Redirigir a la página de inicio de sesión en caso de error
-            });
+    <section class="review-form">
+        <h2 id="formTitle">Agregar una nueva reseña</h2>
+        <p id="reviewIdDisplay"></p> <!-- Mostrará el ID de la reseña seleccionada -->
+        <form id="reviewForm">
+            <input type="hidden" id="reviewId" name="reviewId">
+            <label for="nombreUsuarioInput">Nombre:</label>
+            <input type="text" id="nombreUsuarioInput" name="nombreUsuario" required>
+            <label for="comentarioInput">Comentario:</label>
+            <textarea id="comentarioInput" name="comentario" required></textarea>
+            <button type="submit">Enviar</button>
+            <button type="button" id="cancelReviewButton">Cancelar</button>
+        </form>
+    </section>
 
-            // Manejar el cierre de sesión
-            document.getElementById("logoutButton").addEventListener("click", function() {
-                fetch("http://127.0.0.1:5000/api/logout", {
-                    method: "POST",
-                    credentials: "include"
-                })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = "../index.html"; // Redirigir a index
-                    } else {
-                        console.error("Error al cerrar sesión:", response.statusText);
-                    }
-                })
-                .catch(error => console.error("Error al cerrar sesión:", error));
-            });
-        });
-    </script>
+    <!-- Tabla para mostrar reseñas -->
+    <section class="reviews-table">
+        <h2>Reseñas existentes</h2>
+        <table id="reviewsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Comentario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas se agregarán aquí dinámicamente -->
+            </tbody>
+        </table>
+    </section>
 
+    <section class="promo-form">
+        <h2 id="promoFormTitle">Agregar una nueva promoción</h2>
+        <p id="promoIdDisplay"></p> <!-- Mostrará el ID de la promoción seleccionada -->
+        <form id="promoForm">
+            <input type="hidden" id="promoId" name="promoId">
+            <label for="descripcionInput">Descripción:</label>
+            <input type="text" id="descripcionInput" name="descripcion" required>
+            <label for="imageUrlInput">URL de imagen:</label>
+            <input type="text" id="imageUrlInput" name="imageUrlInput" requiered>
+            <label for="precioInput">Precio:</label>
+            <input type="text" id="precioInput" name="precio" required>
+            <button type="submit">Enviar</button>
+            <button type="button" id="cancelPromoButton">Cancelar</button>
+        </form>
+    </section>   
+
+<!-- Tabla para mostrar promos -->
+<section class="promos-table">
+    <h2>Promociones</h2>
+    <table id="promosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+                <th>Imagen</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas se agregarán aquí dinámicamente -->
+        </tbody>
+    </table>
+</section>
+
+    <script src="../static/js/admin.js"></script>
     <script src="../static/js/header.js"></script>
     <script src="../static/js/estilosdefault.js"></script>
 </body>

@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #f5f5f5; 
+    margin-top: 10px; /* Espacio adicional arriba del h1 */
+}
+section {
+    margin-top: 10px; /* Espacio de 10px entre el h1 y el primer section */
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.review-form {
+    max-width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2c3e50;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.review-form label {
+    display: block;
+    font-weight: bold;
+    color: floralwhite;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+.review-form input[type="text"],
+.review-form textarea {
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    text-align: justify;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.review-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+.review-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.promo-form {
+    max-width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2c3e50;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.promo-form label {
+    display: block;
+    font-weight: bold;
+    color: floralwhite;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+.promo-form input[type="text"],
+.promo-form textarea {
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    text-align: justify;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.promo-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+.promo-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}

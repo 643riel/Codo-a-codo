@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/usuario.css">
     <title>Página de Usuario</title>
 </head>
 <body>
     <h1>Bienvenido, <span id="nombreUsuario"></span>!</h1>
 
-    <!-- Botón para cerrar sesión -->
-    <button id="logoutButton">Cerrar sesión</button>
+    <div class="logout-box">
+        <button id="logoutButton">Cerrar sesión</button>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {

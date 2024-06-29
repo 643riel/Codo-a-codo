@@ -70,34 +70,54 @@ def update_promo(id):
         db.session.rollback()
         return jsonify({'error': str(e)}), 500
 
+# -----------------------------------------------------------
+# --- CONTACT MESSAGES
 
-# Ruta para recibir los mensajes de contacto (solo se permite el método POST)
+# Ruta para recibir un mensaje de contacto
 @routes.route('/api/contact', methods=['POST'])
 def receive_contact_message():
-    if request.method == 'POST':
-        try:
-            nombre = request.form['nombre']
-            apellido = request.form['apellido']
-            email = request.form['email']
-            mensaje = request.form['mensaje']
-            bebida = request.form['bebida']
+    try:
+        data = request.form
+        new_message = ContactMessage(
+            nombre=data['nombre'],
+            apellido=data['apellido'],
+            email=data['email'],
+            mensaje=data['mensaje'],
+            bebida=data['bebida']
+        )
+        db.session.add(new_message)
+        db.session.commit()
+        return jsonify({'message': 'Mensaje recibido con éxito'}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
 
-            new_message = ContactMessage(
-                nombre=nombre,
-                apellido=apellido,
-                email=email,
-                mensaje=mensaje,
-                bebida=bebida
-            )
-            db.session.add(new_message)
-            db.session.commit()
+# Ruta para obtener todos los mensajes de contacto
+@routes.route('/api/contact_messages', methods=['GET'])
+def get_contact_messages():
+    try:
+        messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).all()
+        return jsonify([message.to_dict() for message in messages]), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-            return jsonify({'message': 'Mensaje recibido con éxito'}), 201
-        except Exception as e:
-            db.session.rollback()
-            return jsonify({'error': str(e)}), 500
-    else:
-        return jsonify({'error': 'Método no permitido'}), 405
+# Ruta para eliminar un mensaje de contacto
+@routes.route('/api/contact_messages/<int:message_id>', methods=['DELETE'])
+def delete_contact_message(message_id):
+    try:
+        message = ContactMessage.query.get(message_id)
+        if not message:
+            return jsonify({'error': 'Mensaje de contacto no encontrado'}), 404
+
+        db.session.delete(message)
+        db.session.commit()
+        return jsonify({'message': 'Mensaje de contacto eliminado correctamente'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+
+#------------------------------------------------------------
 
 # Ruta para registrar un nuevo usuario
 @routes.route('/api/register', methods=['POST'])

@@ -30,6 +30,18 @@ class ContactMessage(db.Model):
     def __repr__(self):
         return f'<ContactMessage {self.nombre} {self.apellido}>'
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'nombre': self.nombre,
+            'apellido': self.apellido,
+            'email': self.email,
+            'mensaje': self.mensaje,
+            'bebida': self.bebida,
+            'created_at': self.created_at.isoformat()
+        }
+
+
 # Definir el modelo de datos para la tabla User
 class User(UserMixin, db.Model):
     __tablename__ = 'users'

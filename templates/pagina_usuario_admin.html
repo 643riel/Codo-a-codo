@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,66 @@
     <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
     <title>ADMIN</title>
 </head>
+
 <body>
     <h1>Bienvenido, <span id="nombreUsuario"></span>!</h1>
 
-    <!-- Botón para cerrar sesión -->
-    <button id="logoutButton">Cerrar sesión</button>
+    <div class="logout-box">
+        <button id="logoutButton">Cerrar sesión</button>
+    </div>
+
+    <!-- ------------------------------------------- -->
+    <!-- Tabla para mostrar mensajes de contacto -->
+    <div class="title-container">
+        <h2>Contacto</h2>
+    </div>
+
+    <section class="contact-messages-table">
+        <table id="contactMessagesTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Mensaje</th>
+                    <th>Bebida</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas se van a agregar acá -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ------------------------------------------- -->
+    <!-- Formulario para agregar una nueva reseña -->
+    <div class="title-container">
+        <h2>Reseñas</h2>
+    </div>
 
     <section class="review-form">
-        <h2 id="formTitle">Agregar una nueva reseña</h2>
-        <p id="reviewIdDisplay"></p> <!-- Mostrará el ID de la reseña seleccionada -->
         <form id="reviewForm">
+            <div>
+                <label for="reviewId">ID:</label>
+                <span id="reviewIdDisplay"></span>
+            </div>
             <input type="hidden" id="reviewId" name="reviewId">
             <label for="nombreUsuarioInput">Nombre:</label>
             <input type="text" id="nombreUsuarioInput" name="nombreUsuario" required>
             <label for="comentarioInput">Comentario:</label>
             <textarea id="comentarioInput" name="comentario" required></textarea>
-            <button type="submit">Enviar</button>
-            <button type="button" id="cancelReviewButton">Cancelar</button>
+            <div class="button-container">
+                <button type="submit" id="sendReviewButton">Enviar</button>
+                <button type="button" id="cancelReviewButton">Cancelar</button>
+            </div>
         </form>
     </section>
 
     <!-- Tabla para mostrar reseñas -->
     <section class="reviews-table">
-        <h2>Reseñas existentes</h2>
         <table id="reviewsTable">
             <thead>
                 <tr>
@@ -40,48 +78,61 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Las filas se agregarán aquí dinámicamente -->
+                <!-- Las filas se van a agregar acá -->
             </tbody>
         </table>
     </section>
 
+    <!-- ------------------------------------------- -->
+    <div class="title-container">
+        <h2>Promociones</h2>
+    </div>
+    <!-- Formulario para agregar una nueva promoción -->
     <section class="promo-form">
-        <h2 id="promoFormTitle">Agregar una nueva promoción</h2>
-        <p id="promoIdDisplay"></p> <!-- Mostrará el ID de la promoción seleccionada -->
         <form id="promoForm">
+            <div>
+                <label for="promoId">ID:</label>
+                <span id="promoIdDisplay"></span>
+            </div>
             <input type="hidden" id="promoId" name="promoId">
             <label for="descripcionInput">Descripción:</label>
             <input type="text" id="descripcionInput" name="descripcion" required>
             <label for="imageUrlInput">URL de imagen:</label>
-            <input type="text" id="imageUrlInput" name="imageUrlInput" requiered>
+            <input type="text" id="imageUrlInput" name="imageUrl" required>
             <label for="precioInput">Precio:</label>
             <input type="text" id="precioInput" name="precio" required>
-            <button type="submit">Enviar</button>
-            <button type="button" id="cancelPromoButton">Cancelar</button>
+            <div class="button-container">
+                <button type="submit" id="sendPromoButton">Enviar</button>
+                <button type="button" id="cancelPromoButton">Cancelar</button>
+            </div>
         </form>
-    </section>   
+    </section>
 
-<!-- Tabla para mostrar promos -->
-<section class="promos-table">
-    <h2>Promociones</h2>
-    <table id="promosTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Descripción</th>
-                <th>Imagen</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Las filas se agregarán aquí dinámicamente -->
-        </tbody>
-    </table>
-</section>
+    <!-- Tabla para mostrar promociones -->
+    <section class="promos-table">
+        <table id="promosTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas se van a agregar acá -->
+            </tbody>
+        </table>
+    </section>
 
-    <script src="../static/js/admin.js"></script>
+    <!-- ------------------------------------------- -->
+    <!-- Scripts al final del cuerpo del documento -->
+    <script src="../static/js/admincontacto.js"></script>
+    <script src="../static/js/adminresenia.js"></script>
+    <script src="../static/js/adminpromo.js"></script>
     <script src="../static/js/header.js"></script>
     <script src="../static/js/estilosdefault.js"></script>
 </body>
+
 </html>

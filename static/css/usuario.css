@@ -109,22 +109,6 @@ table th {
     color: black; /* Cambiar color de texto al pasar el mouse */
 }
 
-#cancelReviewButton, #cancelPromoButton {
-    background-color: #dc3545; /* Color de fondo para el botón de cancelar */
-}
-
-#cancelReviewButton:hover, #cancelPromoButton:hover {
-    background-color: #c82333; /* Color de fondo más oscuro al pasar el ratón */
-}
-
-#sendReviewButton, #sendPromoButton {
-    background-color: #140086; /* Color de fondo para el botón de enviar */
-}
-
-#sendReviewButton:hover, #sendPromoButton:hover {
-    background-color: #0b0051; /* Color de fondo más oscuro al pasar el ratón */
-}
-
 .logout-box {
     display: flex;
     justify-content: center; /* Centra el contenido horizontalmente */
@@ -134,69 +118,4 @@ table th {
 .button-container {
     display: flex;
     justify-content: center; /* Centra horizontalmente el contenido del contenedor */
-}
-
-
-.button-container button {
-    margin-right: 10px; /* Espacio horizontal entre los botones */
-    padding: 10px 20px; /* Espaciado interno de los botones */
-}
-
-.button-container button:last-child {
-    margin-right: 0; /* Eliminar el margen derecho del último botón para evitar espacio extra */
-}
-
-.edit-button {
-    background-color: #007bff; /* Azul */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 20px;
-    margin: 5px;
-}
-
-.edit-button:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
-}
-
-.delete-button {
-    background-color: #dc3545; /* Rojo */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 20px;
-    margin: 5px;
-}
-
-.delete-button:hover {
-    background-color: #c82333; /* Rojo más oscuro al pasar el ratón */
-}
-
-/* Titulo de seccioón */
-.title-container {
-    background-color: #2c3e50; /* Gris oscuro con un tono azulado */
-    color: #ecf0f1; /* Color del texto */
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin: 20px auto;
-    width: 80%; /* Ajusta según sea necesario */
-    margin-top: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    transform: scale(1); /* Escala inicial */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
-}
-
-.title-container:hover {
-    background-color: #34495e; /* Color más oscuro al pasar el ratón */
-    transform: scale(1.05); /* Escala ligeramente mayor al pasar el ratón */
-}
-
-.title-container h2 {
-    margin: 0; /* Elimina el margen para el título */
-    padding-top: 20px; /* Espaciado adicional superior */
-    font-size: 24px; /* Tamaño de fuente ajustado */
-    letter-spacing: 1px; /* Espaciado entre letras */
 }

@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Enviar los datos al servidor Flask (en el puerto 5000)
             const formData = new FormData(form);
 
-            fetch('http://127.0.0.1:5000/api/contact', {
+            fetch('https://giakantas.pythonanywhere.com/api/contact', {
                 method: 'POST',
                 body: formData
             })

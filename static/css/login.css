@@ -18,6 +18,99 @@ body {
     text-align: center; /* Alinea todo al centro */
 }
 
+#userCredentials {
+    position: relative; /* Posicionar el contenedor como relativo */
+    background-color: #34495e; /* Fondo gris oscuro con un tono azulado */
+    border: 1px solid #2c3e50; /* Borde gris más oscuro */
+    border-radius: 12px; /* Bordes redondeados más pronunciados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    width: 300px;
+    color: #ecf0f1; /* Color de texto claro para contraste */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Transiciones suaves para los efectos */
+}
+
+/* Efectos al pasar el mouse sobre el contenedor */
+#userCredentials:hover::before {
+    content: ''; /* No mostrar texto */
+    position: absolute; /* Posicionar el overlay */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Fondo negro semi-transparente */
+    border-radius: 12px; /* Mantener los bordes redondeados */
+    z-index: 1; /* Colocar el overlay encima del contenido */
+}
+
+/* Asegurar que el contenido esté encima del overlay */
+#userCredentials:hover {
+    background-color: #2c3e50; /* Fondo más oscuro al pasar el mouse */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el mouse */
+    color: #ffffff; /* Color de texto blanco al pasar el mouse */
+}
+
+/* Estilo para el título */
+#userCredentials h3 {
+    margin-top: 0; /* Eliminar margen superior */
+    font-size: 24px; /* Tamaño de fuente para el título */
+    color: #ecf0f1; /* Color del texto */
+    margin-bottom: 10px; /* Espacio debajo del título */
+    z-index: 2; /* Asegurar que el título esté encima del overlay */
+    position: relative; /* Posicionar el título de forma relativa */
+}
+
+/* Hacer que el color del título cambie al pasar el mouse */
+#userCredentials:hover h3 {
+    color: #ffffff; /* Color del título blanco al pasar el mouse */
+}
+
+/* Estilo para los párrafos que contienen 'Usuario' y 'Contraseña' */
+#userCredentials p {
+    font-size: 16px; /* Tamaño de fuente para el párrafo */
+    color: #bdc3c7; /* Color de texto más claro */
+    z-index: 2; /* Asegurar que el párrafo esté encima del overlay */
+    position: relative; /* Posicionar el párrafo de forma relativa */
+}
+
+/* Estilo para los otros párrafos al pasar el mouse */
+#userCredentials:hover p:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)):not(:nth-last-child(4)):not(:nth-last-child(5)) {
+    color: #ffffff; 
+}
+
+/* Cambiar el color a celeste para el h3, el primer párrafo y el segundo párrafo al pasar el mouse sobre el contenedor */
+#userCredentials:hover h3 {
+    color: #00bfff; /* Color celeste */
+}
+
+/* Cambiar el color a celeste para los cinco últimos párrafos al pasar el mouse sobre el contenedor */
+#userCredentials:hover p:last-child,
+#userCredentials:hover p:nth-last-child(2),
+#userCredentials:hover p:nth-last-child(3),
+#userCredentials:hover p:nth-last-child(4),
+#userCredentials:hover p:nth-last-child(5) {
+    color: #00bfff; /* Color celeste */
+}
+
+/* Estilo para los párrafos específicos al pasar el mouse */
+#userCredentials:hover p:last-child,
+#userCredentials:hover p:nth-last-child(2),
+#userCredentials:hover p:nth-last-child(3),
+#userCredentials:hover p:nth-last-child(4),
+#userCredentials:hover p:nth-last-child(5) { 
+    color: #00bfff; 
+}
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h2 {
     color: #333;
     margin-bottom: 15px; /* Añade espacio entre el título y el formulario */

@@ -1,3 +1,69 @@
+/* 
+Estilos generales para el cuerpo y los encabezados:
+- body: Establece la fuente, los márgenes, el padding y el color de fondo.
+- h1, h2, h3: Centra el texto, establece el color y el margen superior.
+- section: Espacio de 10px entre el h1 y el primer section.
+*/
+
+/* 
+Estilos para botones:
+- button: Establece el estilo general para botones.
+- button:hover: Cambia el fondo y el color del texto al pasar el mouse.
+*/
+
+/* 
+Estilos generales para formularios:
+- form: Define el ancho máximo, el margen, el padding, el fondo, el radio de borde, la sombra y la disposición del formulario.
+- form label: Establece el estilo para las etiquetas dentro de los formularios.
+- form input[type="text"], form textarea: Define el estilo para los campos de texto y área de texto.
+*/
+
+/* 
+Estilos para tablas:
+- table: Establece el ancho, margen, colapso de bordes, borde, radio de borde, desbordamiento y sombra.
+- table th, table td: Define el padding, borde y alineación del texto.
+- table th: Establece el fondo y el color del texto para los encabezados.
+- table td: Establece el fondo y el color del texto para las celdas.
+*/
+
+/* 
+Estilos para botones específicos:
+- #logoutButton, #cancelReviewButton, #sendReviewButton, #cancelPromoButton, #sendPromoButton: Establece el estilo general para varios botones.
+- #logoutButton:hover: Cambia el fondo y el color del texto al pasar el mouse para el botón de logout.
+- #cancelReviewButton, #cancelPromoButton: Define el color de fondo para los botones de cancelar.
+- #cancelReviewButton:hover, #cancelPromoButton:hover: Cambia el fondo al pasar el mouse para los botones de cancelar.
+- #sendReviewButton, #sendPromoButton: Define el color de fondo para los botones de enviar.
+- #sendReviewButton:hover, #sendPromoButton:hover: Cambia el fondo al pasar el mouse para los botones de enviar.
+*/
+
+/* 
+Estilos para la caja de logout y el contenedor de botones:
+- .logout-box: Centra el contenido horizontalmente.
+- .button-container: Centra horizontalmente el contenido del contenedor.
+- .button-container button: Define el margen y padding para los botones dentro del contenedor.
+- .button-container button:last-child: Elimina el margen derecho del último botón.
+*/
+
+/* 
+Estilos para botones de editar y eliminar:
+- .edit-button: Define el estilo para el botón de editar.
+- .edit-button:hover: Cambia el fondo y el color del texto al pasar el mouse.
+- .delete-button: Define el estilo para el botón de eliminar.
+- .delete-button:hover: Cambia el fondo y el color del texto al pasar el mouse.
+*/
+
+/* 
+Estilos para el título de la sección:
+- .title-container: Define el fondo, color del texto, padding, radio de borde, alineación del texto, margen, ancho, sombra, escala y transición.
+- .title-container:hover: Cambia el fondo y la escala al pasar el mouse.
+- .title-container h2: Elimina el margen, establece el padding superior, tamaño de la fuente y espaciado entre letras.
+*/
+
+/* 
+Media query para dispositivos móviles:
+- @media only screen and (max-width: 600px): Ajustes de estilo para pantallas de cels.
+*/
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -32,10 +98,9 @@ button {
 
 button:hover {
     background-color: #d3e3f5;
-    color: #1100ff
+    color: #1100ff;
 }
 
-/* Estilos generales para todos los formularios */
 form {
     max-width: 60%;
     margin: 20px auto;
@@ -68,22 +133,30 @@ form textarea {
     font-size: 16px;
 }
 
-/* Estilos para todas las tablas */
 table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 table th, table td {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #007bff;
     text-align: center;
 }
 
 table th {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: #fff;
+}
+
+table td {
+    background-color: #eaf2ff;
+    color: #333;
 }
 
 #logoutButton, #cancelReviewButton, #sendReviewButton, #cancelPromoButton, #sendPromoButton {
@@ -99,7 +172,7 @@ table th {
     box-sizing: border-box; /* Incluir padding y border en el tamaño total */
 }
 
-#logoutButton{
+#logoutButton {
     background-color: #000; /* Cambiar color de fondo al pasar el mouse */
     color: #ffffff;
 }
@@ -114,7 +187,7 @@ table th {
 }
 
 #cancelReviewButton:hover, #cancelPromoButton:hover {
-    background-color: #c82333; /* Color de fondo más oscuro al pasar el ratón */
+    background-color: #c82333; /* Color de fondo más oscuro al pasar el mouse */
 }
 
 #sendReviewButton, #sendPromoButton {
@@ -122,7 +195,7 @@ table th {
 }
 
 #sendReviewButton:hover, #sendPromoButton:hover {
-    background-color: #0b0051; /* Color de fondo más oscuro al pasar el ratón */
+    background-color: #0b0051; /* Color de fondo más oscuro al pasar el mouse */
 }
 
 .logout-box {
@@ -130,12 +203,10 @@ table th {
     justify-content: center; /* Centra el contenido horizontalmente */
 }
 
-
 .button-container {
     display: flex;
     justify-content: center; /* Centra horizontalmente el contenido del contenedor */
 }
-
 
 .button-container button {
     margin-right: 10px; /* Espacio horizontal entre los botones */
@@ -157,7 +228,8 @@ table th {
 }
 
 .edit-button:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    color: white; /* Color del texto en blanco al pasar el mouse */
 }
 
 .delete-button {
@@ -171,10 +243,10 @@ table th {
 }
 
 .delete-button:hover {
-    background-color: #c82333; /* Rojo más oscuro al pasar el ratón */
+    background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+    color: white; /* Color del texto en blanco al pasar el mouse */
 }
 
-/* Titulo de seccioón */
 .title-container {
     background-color: #2c3e50; /* Gris oscuro con un tono azulado */
     color: #ecf0f1; /* Color del texto */
@@ -190,8 +262,8 @@ table th {
 }
 
 .title-container:hover {
-    background-color: #34495e; /* Color más oscuro al pasar el ratón */
-    transform: scale(1.05); /* Escala ligeramente mayor al pasar el ratón */
+    background-color: #34495e; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Escala ligeramente mayor al pasar el mouse */
 }
 
 .title-container h2 {
@@ -199,4 +271,25 @@ table th {
     padding-top: 20px; /* Espaciado adicional superior */
     font-size: 24px; /* Tamaño de fuente ajustado */
     letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+@media only screen and (max-width: 600px) {
+    form {
+        max-width: 90%; /* Reducir el ancho máximo del formulario */
+    }
+
+    table {
+        width: 100%; /* Hacer que la tabla ocupe todo el ancho disponible */
+        font-size: 14px; /* Reducir el tamaño de fuente para las tablas */
+    }
+
+    #logoutButton, #cancelReviewButton, #sendReviewButton, #cancelPromoButton, #sendPromoButton {
+        width: 100%; /* Hacer que los botones ocupen todo el ancho disponible */
+        margin-top: 10px; /* Reducir el margen superior de los botones */
+    }
+
+    .button-container {
+        flex-direction: column; /* Alinear los botones verticalmente en cels */
+        align-items: center; /* Centrar los botones horizontalmente */
+    }
 }

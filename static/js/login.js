@@ -7,7 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         password: document.getElementById('loginPassword').value
     };
 
-    fetch('http://127.0.0.1:5000/api/login', {
+    fetch('https://giakantas.pythonanywhere.com/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         password: document.getElementById('registerPassword').value
     };
 
-    fetch('http://127.0.0.1:5000/api/register', {
+    fetch('https://giakantas.pythonanywhere.com/api/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

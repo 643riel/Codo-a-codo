@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Función para cargar las reseñas desde la base de datos
     function fetchReviews() {
-        fetch('http://127.0.0.1:5000/api/reviews')
+        fetch('https://giakantas.pythonanywhere.com/api/reviews')
             .then(response => {
                 console.log('Estado de la respuesta de carga de reseñas:', response.status);
                 return response.json();
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Función para verificar la autenticación del usuario al cargar la página
     function checkAuthentication() {
-        return fetch("http://127.0.0.1:5000/api/current_user", {
+        return fetch("https://giakantas.pythonanywhere.com/api/current_user", {
             method: "GET",
             credentials: "include"
         })
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log('Enviando nueva reseña:', nuevaReseña);
 
-                fetch('http://127.0.0.1:5000/api/reviews', {
+                fetch('https://giakantas.pythonanywhere.com/api/reviews', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

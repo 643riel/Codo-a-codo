@@ -17,7 +17,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Verificar si el usuario está autenticado
-            fetch("http://127.0.0.1:5000/api/current_user", {
+            fetch("https://giakantas.pythonanywhere.com/api/current_user", {
                 method: "GET",
                 credentials: "include"
             })
@@ -41,7 +41,7 @@
 
             // Manejar el cierre de sesión
             document.getElementById("logoutButton").addEventListener("click", function() {
-                fetch("http://127.0.0.1:5000/api/logout", {
+                fetch("https://giakantas.pythonanywhere.com/api/logout", {
                     method: "POST",
                     credentials: "include"
                 })

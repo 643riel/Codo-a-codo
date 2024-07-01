@@ -1,59 +1,3 @@
-// Función para verificar si el usuario está autenticado
-function isUserAuthenticated() {
-    return fetch("https://giakantas.pythonanywhere.com/api/current_user", {
-        method: "GET",
-        credentials: "include"
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        return data.username || null; // Devuelve el nombre de usuario si está autenticado
-    })
-    .catch(error => {
-        console.error("Error al verificar el usuario:", error);
-        return null;
-    });
-}
-
-// Función para mostrar el nombre de usuario en el encabezado y actualizar los enlaces
-async function displayUserName() {
-    var nombreUsuario = await isUserAuthenticated();
-
-    // Actualizar enlace de "Login" en el encabezado
-    var loginLink = document.querySelector('.hipervinculo[href="../templates/login.html"]');
-    if (loginLink) {
-        if (nombreUsuario) {
-            // Redirigir a pagina_usuario_admin.html si el usuario es 'GABI'
-            if (nombreUsuario.toUpperCase() === 'GABI') {
-                loginLink.textContent = nombreUsuario.toUpperCase();
-                loginLink.href = '../templates/pagina_usuario_admin.html';
-            } else {
-                // Redirigir a pagina_usuario.html para otros usuarios autenticados
-                loginLink.textContent = nombreUsuario.toUpperCase();
-                loginLink.href = '../templates/pagina_usuario.html';
-            }
-        } else {
-            // Si no hay nombre de usuario, mostrar LOGIN
-            loginLink.textContent = 'LOGIN';
-            loginLink.href = '../templates/login.html';
-        }
-    }
-    
-    // Actualizar saludo de bienvenida si el usuario está logueado
-    var nombreUsuarioSpan = document.getElementById('nombreUsuario');
-    if (nombreUsuarioSpan) {
-        if (nombreUsuario) {
-            nombreUsuarioSpan.textContent = nombreUsuario.toUpperCase(); // Mostrar el nombre de usuario en mayúsculas si está logueado
-        } else {
-            nombreUsuarioSpan.textContent = ''; // Mostrar '' si no está logueado
-        }
-    }
-}
-
 // Función para generar y mostrar el encabezado estático
 function generateStaticHeader() {
     var headerContent = `
@@ -72,13 +16,18 @@ function generateStaticHeader() {
     document.body.insertAdjacentHTML('afterbegin', headerContent);
 }
 
-// Función principal para inicializar el encabezado y la visualización del nombre de usuario
-async function initializeHeader() {
+// Función principal para inicializar el encabezado
+function initializeHeader() {
     generateStaticHeader(); // Generar el encabezado estático
-    await displayUserName(); // Mostrar el nombre de usuario si está autenticado
+
+    // Actualizar enlace de "ADMIN" en el encabezado
+    var adminLink = document.querySelector('.hipervinculo[href="../templates/pagina_usuario_admin.html"]');
+    if (adminLink) {
+        adminLink.href = '../templates/pagina_usuario_admin.html';
+    }
 }
 
 // Llamar a la función principal al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
-    initializeHeader(); // Inicializar el encabezado y la visualización del nombre de usuario
+    initializeHeader(); // Inicializar el encabezado
 });

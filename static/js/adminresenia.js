@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     var reviewsTableBody = document.querySelector("#reviewsTable tbody");
 
+    fetchReviews(); // Cargar reseñas al cargar la página
+
     // Función para cargar las reseñas desde la base de datos
     function fetchReviews() {
         fetch('https://giakantas.pythonanywhere.com/api/reviews')
@@ -47,12 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteButton.addEventListener('click', function () {
             deleteReview(reviewData.id); // Pasar el ID correcto al eliminar
         });
-        var buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('button-container');
-        buttonContainer.appendChild(editButton);
-        buttonContainer.appendChild(deleteButton);
-        actionsCell.appendChild(buttonContainer);
-    
+        actionsCell.appendChild(deleteButton);
+
         row.appendChild(actionsCell);
 
         return row;
@@ -69,33 +67,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para manejar la eliminación de una reseña
     function deleteReview(id) {
         fetch(`https://giakantas.pythonanywhere.com/api/reviews/${id}`, {
-            method: 'DELETE',
-            credentials: 'include'
+            method: 'DELETE'
         })
             .then(response => {
                 if (response.ok) {
-                    // Resetear los campos y el ID
-                    resetForm();
-                    fetchReviews();
+                    fetchReviews(); // Recargar las reseñas después de eliminar
                 } else {
                     console.error('Error al eliminar la reseña:', response.statusText);
                 }
             })
             .catch(error => console.error('Error al eliminar la reseña:', error));
-    }
-
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    }
-
-    // Función para resetear el formulario de reseña
-    function resetForm() {
-        document.getElementById('reviewId').value = '';
-        document.getElementById('reviewIdDisplay').textContent = '';
-        // Usar capitalizeFirstLetter para capitalizar la primera letra del nombre de usuario
-        const nombreUsuario = document.getElementById("nombreUsuario").textContent;
-        document.getElementById('nombreUsuarioInput').value = capitalizeFirstLetter(nombreUsuario); // Mantener el nombre de usuario por defecto
-        document.getElementById('comentarioInput').value = '';
     }
 
     // Manejar el envío del formulario de reseña
@@ -125,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
             body: JSON.stringify(nuevaReseña)
         })
             .then(response => response.json())
@@ -133,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.error) {
                     console.error('Error al guardar la reseña:', data.error);
                 } else {
-                    fetchReviews();
+                    fetchReviews(); // Recargar las reseñas después de guardar
                     resetForm(); // Resetear el formulario después de enviar la reseña
                 }
             })
@@ -148,5 +128,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     } else {
         console.error('Elemento cancelReviewButton no encontrado.');
+    }
+
+    // Función para resetear el formulario de reseña
+    function resetForm() {
+        document.getElementById('reviewId').value = '';
+        document.getElementById('reviewIdDisplay').textContent = '';
+        document.getElementById('nombreUsuarioInput').value = '';
+        document.getElementById('comentarioInput').value = '';
     }
 });

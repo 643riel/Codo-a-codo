@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     var promosTableBody = document.querySelector("#promosTable tbody");
 
+    fetchPromos(); // Cargar promociones al cargar la página
+
     // Función para cargar las promociones desde la base de datos
     function fetchPromos() {
         fetch('https://giakantas.pythonanywhere.com/api/promos')
@@ -51,12 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
         deleteButton.addEventListener('click', function () {
             deletePromo(promoData.id); // Pasar el ID correcto al eliminar
         });
-        var buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('button-container');
-        buttonContainer.appendChild(editButton);
-        buttonContainer.appendChild(deleteButton);
-        actionsCell.appendChild(buttonContainer);
-    
+        actionsCell.appendChild(deleteButton);
+
         row.appendChild(actionsCell);
 
         return row;
@@ -75,27 +73,15 @@ document.addEventListener("DOMContentLoaded", function() {
     function deletePromo(id) {
         fetch(`https://giakantas.pythonanywhere.com/api/promos/${id}`, {
             method: 'DELETE',
-            credentials: 'include'
         })
         .then(response => {
             if (response.ok) {
-                // Resetear los campos y el ID
-                resetPromoForm();
-                fetchPromos();
+                fetchPromos(); // Recargar las promociones después de eliminar
             } else {
                 console.error('Error al eliminar la promoción:', response.statusText);
             }
         })
         .catch(error => console.error('Error al eliminar la promoción:', error));
-    }
-
-    // Función para resetear el formulario de promoción
-    function resetPromoForm() {
-        document.getElementById('promoId').value = '';
-        document.getElementById('promoIdDisplay').textContent = '';
-        document.getElementById('descripcionInput').value = '';
-        document.getElementById('imageUrlInput').value = '';
-        document.getElementById('precioInput').value = '';
     }
 
     // Manejar el envío del formulario de promoción
@@ -127,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
             body: JSON.stringify(nuevaPromo)
         })
         .then(response => response.json())
@@ -135,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (data.error) {
                 console.error('Error al guardar la promoción:', data.error);
             } else {
-                fetchPromos();
+                fetchPromos(); // Recargar las promociones después de guardar
                 resetPromoForm(); // Resetear el formulario después de enviar la promoción
             }
         })
@@ -150,5 +135,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     } else {
         console.error('Elemento cancelPromoButton no encontrado.');
+    }
+
+    // Función para resetear el formulario de promoción
+    function resetPromoForm() {
+        document.getElementById('promoId').value = '';
+        document.getElementById('promoIdDisplay').textContent = '';
+        document.getElementById('descripcionInput').value = '';
+        document.getElementById('imageUrlInput').value = '';
+        document.getElementById('precioInput').value = '';
     }
 });

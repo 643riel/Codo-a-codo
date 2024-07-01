@@ -32,7 +32,7 @@ function createCard(descripcion, imageUrl, precio) {
 var cardContainer = document.getElementById('card-container');
 
 // Hacer una solicitud a la API para obtener los datos de las promos
-fetch('http://localhost:5000/api/promos') // Ruta de la API
+fetch('https://giakantas.pythonanywhere.com/api/promos') // Ruta de la API
     .then(response => response.json())
     .then(cardsData => {
         // Crear cards y agregarlas al contenedor

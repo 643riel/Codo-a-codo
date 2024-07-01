@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var promosTableBody = document.querySelector("#promosTable tbody");
 
     // Verificar si el usuario está autenticado
-    fetch("http://127.0.0.1:5000/api/current_user", {
+    fetch("https://giakantas.pythonanywhere.com/api/current_user", {
         method: "GET",
         credentials: "include"
     })
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var logoutButton = document.getElementById("logoutButton");
     if (logoutButton) {
         logoutButton.addEventListener("click", function() {
-            fetch("http://127.0.0.1:5000/api/logout", {
+            fetch("https://giakantas.pythonanywhere.com/api/logout", {
                 method: "POST",
                 credentials: "include"
             })
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para cargar las promociones desde la base de datos
     function fetchPromos() {
-        fetch('http://127.0.0.1:5000/api/promos')
+        fetch('https://giakantas.pythonanywhere.com/api/promos')
             .then(response => response.json())
             .then(promosData => {
                 promosTableBody.innerHTML = '';
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para manejar la eliminación de una promoción
     function deletePromo(id) {
-        fetch(`http://127.0.0.1:5000/api/promos/${id}`, {
+        fetch(`https://giakantas.pythonanywhere.com/api/promos/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         })
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         var method = promoId ? 'PUT' : 'POST';
-        var url = promoId ? `http://127.0.0.1:5000/api/promos/${promoId}` : 'http://127.0.0.1:5000/api/promos';
+        var url = promoId ? `https://giakantas.pythonanywhere.com/api/promos/${promoId}` : 'https://giakantas.pythonanywhere.com/api/promos';
 
         var nuevaPromo = {
             descripcion: descripcion,

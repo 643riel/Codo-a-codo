@@ -4,20 +4,7 @@
 START TRANSACTION;
 
 -- Eliminar la base de datos si existe
-DROP DATABASE IF EXISTS wunderbar;
-
--- Crear la base de datos
-CREATE DATABASE wunderbar;
-
--- Si el usuario no existe, crearlo
--- CREATE USER IF NOT EXISTS 'usuario-test'@'localhost' IDENTIFIED BY '1234';
-
--- Otorgar privilegios si el usuario fue creado
--- GRANT ALL PRIVILEGES ON wunderbar.* TO 'usuario-test'@'localhost' WITH GRANT OPTION;
-
--- FLUSH PRIVILEGES;
-
-USE wunderbar;
+USE default;
 
 -- Crear la tabla promos
 CREATE TABLE IF NOT EXISTS promos (

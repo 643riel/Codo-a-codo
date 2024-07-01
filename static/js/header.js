@@ -1,6 +1,6 @@
 // Función para verificar si el usuario está autenticado
 function isUserAuthenticated() {
-    return fetch("http://127.0.0.1:5000/api/current_user", {
+    return fetch("https://giakantas.pythonanywhere.com/api/current_user", {
         method: "GET",
         credentials: "include"
     })

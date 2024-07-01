@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para cargar los mensajes de contacto desde el servidor
     function fetchContactMessages() {
-        fetch('http://127.0.0.1:5000/api/contact_messages')
+        fetch('https://giakantas.pythonanywhere.com/api/contact_messages')
             .then(response => response.json())
             .then(contactMessagesData => {
                 contactMessagesTableBody.innerHTML = '';
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para manejar la eliminación de un mensaje de contacto
     function deleteContactMessage(id) {
-        fetch(`http://127.0.0.1:5000/api/contact_messages/${id}`, {
+        fetch(`https://giakantas.pythonanywhere.com/api/contact_messages/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         })

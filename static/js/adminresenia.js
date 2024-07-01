@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var reviewsTableBody = document.querySelector("#reviewsTable tbody");
 
     // Verificar si el usuario está autenticado
-    fetch("http://127.0.0.1:5000/api/current_user", {
+    fetch("https://giakantas.pythonanywhere.com/api/current_user", {
         method: "GET",
         credentials: "include"
     })
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.username) {
                 document.getElementById("nombreUsuario").textContent = data.username;
+                document.getElementById("nombreUsuarioInput").value = data.username; // Asignar el nombre de usuario al campo de entrada
                 fetchReviews();
             } else {
                 window.location.href = "login.html"; // Redirigir a la página de inicio de sesión si no está autenticado
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var logoutButton = document.getElementById("logoutButton");
     if (logoutButton) {
         logoutButton.addEventListener("click", function () {
-            fetch("http://127.0.0.1:5000/api/logout", {
+            fetch("https://giakantas.pythonanywhere.com/api/logout", {
                 method: "POST",
                 credentials: "include"
             })
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para cargar las reseñas desde la base de datos
     function fetchReviews() {
-        fetch('http://127.0.0.1:5000/api/reviews')
+        fetch('https://giakantas.pythonanywhere.com/api/reviews')
             .then(response => response.json())
             .then(reviewsData => {
                 reviewsTableBody.innerHTML = '';
@@ -60,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error('Error al cargar las reseñas desde la base de datos:', error));
     }
 
-    // Función para crear una fila de reseña en la tabla
     // Función para crear una fila de reseña en la tabla
     function createReviewRow(reviewData) {
         var row = document.createElement('tr');
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var editButton = document.createElement('button');
         editButton.textContent = 'Editar';
-        editButton.classList.add('edit-button'); // Añadir clase específica
+        editButton.classList.add('edit-button'); // clase específica edit
         editButton.addEventListener('click', function () {
             editReview(reviewData);
         });
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var deleteButton = document.createElement('button');
         deleteButton.textContent = 'Eliminar';
-        deleteButton.classList.add('delete-button'); // Añadir clase específica
+        deleteButton.classList.add('delete-button'); // clase específica delete
         deleteButton.addEventListener('click', function () {
             deleteReview(reviewData.id); // Pasar el ID correcto al eliminar
         });
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para manejar la eliminación de una reseña
     function deleteReview(id) {
-        fetch(`http://127.0.0.1:5000/api/reviews/${id}`, {
+        fetch(`https://giakantas.pythonanywhere.com/api/reviews/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         })
@@ -133,13 +133,21 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error('Error al eliminar la reseña:', error));
     }
 
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
     // Función para resetear el formulario de reseña
     function resetForm() {
         document.getElementById('reviewId').value = '';
         document.getElementById('reviewIdDisplay').textContent = '';
-        document.getElementById('nombreUsuarioInput').value = '';
+        // Usar capitalizeFirstLetter para capitalizar la primera letra del nombre de usuario
+        const nombreUsuario = document.getElementById("nombreUsuario").textContent;
+        document.getElementById('nombreUsuarioInput').value = capitalizeFirstLetter(nombreUsuario); // Mantener el nombre de usuario por defecto
         document.getElementById('comentarioInput').value = '';
     }
+
 
     // Manejar el envío del formulario de reseña
     var reviewForm = document.getElementById('reviewForm');
@@ -156,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         var method = reviewId ? 'PUT' : 'POST';
-        var url = reviewId ? `http://127.0.0.1:5000/api/reviews/${reviewId}` : 'http://127.0.0.1:5000/api/reviews';
+        var url = reviewId ? `https://giakantas.pythonanywhere.com/api/reviews/${reviewId}` : 'https://giakantas.pythonanywhere.com/api/reviews';
 
         var nuevaReseña = {
             nombreUsuario: nombreUsuario,

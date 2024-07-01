@@ -57,16 +57,16 @@ async function displayUserName() {
 // Función para generar y mostrar el encabezado estático
 function generateStaticHeader() {
     var headerContent = `
-    <header class="header">
-        <nav class="en-linea">
-            <a class="hipervinculo" href="../index.html">Inicio</a>
-            <a class="hipervinculo" href="../templates/nosotros.html">Sobre nosotros</a>
-            <a class="hipervinculo" href="../templates/promos.html">Promociones</a>
-            <a class="hipervinculo" href="../templates/form.html">Contactanos</a>
-            <a class="hipervinculo" href="../templates/resenias.html">Reseñas</a>
-            <a class="hipervinculo" href="../templates/login.html">Login</a>
-        </nav>
-    </header>
+<header class="header">
+    <nav class="en-linea">
+        <a class="hipervinculo" href="../index.html">Inicio</a>
+        <a class="hipervinculo" href="../templates/nosotros.html">Sobre nosotros</a>
+        <a class="hipervinculo" href="../templates/promos.html">Promociones</a>
+        <a class="hipervinculo" href="../templates/form.html">Contactanos</a>
+        <a class="hipervinculo" href="../templates/resenias.html">Reseñas</a>
+        <a class="hipervinculo" href="../templates/pagina_usuario_admin.html">ADMIN</a>
+    </nav>
+</header>
     `;
 
     document.body.insertAdjacentHTML('afterbegin', headerContent);

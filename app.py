@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from models import db, User
 from routes import routes
-from flask_login import LoginManager
+from flask_login import LoginManager, login_user
 import subprocess
 
 # Configurar la aplicación Flask
@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://giakantas:Codoac
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'your_secret_key'  # Clave secreta para Flask-Login
 # app.config['SESSION_COOKIE_HTTPONLY'] = True
-app.config['SESSION_COOKIE_SAMESITE'] = None
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
 # Inicializar la base de datos
 db.init_app(app)
@@ -35,5 +35,7 @@ cors = CORS(app, resources={r"/api/*": {"origins": ["https://wunderbarcodoacodo.
 
 if __name__ == '__main__':
     # subprocess.run(["python", "insert_data.py"])
-    app.run(debug=True)
+    # app.run(debug=True)
+    gabi = User.query.filter_by(username='GABI').first()
+    login_user(gabi)
     print('ok')

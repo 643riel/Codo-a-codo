@@ -34,5 +34,5 @@ CORS(app, supports_credentials=True)
 
 if __name__ == '__main__':
     # subprocess.run(["python", "insert_data.py"])
-    # app.run(debug=True) en prod esto no va
+    app.run(debug=True) # en prod esto no va
     print('ok')

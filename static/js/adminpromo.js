@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var promosTableBody = document.querySelector("#promosTable tbody");
 
     fetchPromos(); // Cargar promociones al cargar la página
@@ -8,14 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch('https://giakantas.pythonanywhere.com/api/promos')
             .then(response => response.json())
             .then(promosData => {
+                // Ordenar las promociones por id descendente
+                promosData.sort((a, b) => b.id - a.id);
+
                 promosTableBody.innerHTML = '';
-                promosData.forEach(function(promoData) {
+                promosData.forEach(function (promoData) {
                     var row = createPromoRow(promoData);
                     promosTableBody.appendChild(row);
                 });
             })
             .catch(error => console.error('Error al cargar las promociones desde la base de datos:', error));
     }
+
 
     // Función para crear una fila de promoción en la tabla
     function createPromoRow(promoData) {
@@ -74,19 +78,19 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(`https://giakantas.pythonanywhere.com/api/promos/${id}`, {
             method: 'DELETE',
         })
-        .then(response => {
-            if (response.ok) {
-                fetchPromos(); // Recargar las promociones después de eliminar
-            } else {
-                console.error('Error al eliminar la promoción:', response.statusText);
-            }
-        })
-        .catch(error => console.error('Error al eliminar la promoción:', error));
+            .then(response => {
+                if (response.ok) {
+                    fetchPromos(); // Recargar las promociones después de eliminar
+                } else {
+                    console.error('Error al eliminar la promoción:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Error al eliminar la promoción:', error));
     }
 
     // Manejar el envío del formulario de promoción
     var promoForm = document.getElementById('promoForm');
-    promoForm.addEventListener('submit', function(event) {
+    promoForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
         var promoId = document.getElementById('promoId').value;
@@ -115,22 +119,22 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             body: JSON.stringify(nuevaPromo)
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                console.error('Error al guardar la promoción:', data.error);
-            } else {
-                fetchPromos(); // Recargar las promociones después de guardar
-                resetPromoForm(); // Resetear el formulario después de enviar la promoción
-            }
-        })
-        .catch(error => console.error('Error al guardar la promoción:', error));
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error('Error al guardar la promoción:', data.error);
+                } else {
+                    fetchPromos(); // Recargar las promociones después de guardar
+                    resetPromoForm(); // Resetear el formulario después de enviar la promoción
+                }
+            })
+            .catch(error => console.error('Error al guardar la promoción:', error));
     });
 
     // Manejar el botón de cancelar en el formulario de promoción
     var cancelPromoButton = document.getElementById('cancelPromoButton');
     if (cancelPromoButton) {
-        cancelPromoButton.addEventListener('click', function() {
+        cancelPromoButton.addEventListener('click', function () {
             resetPromoForm();
         });
     } else {

@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch('https://giakantas.pythonanywhere.com/api/reviews')
             .then(response => response.json())
             .then(reviewsData => {
+                // Ordenar las reseñas por id descendente
+                reviewsData.sort((a, b) => b.id - a.id);
+
                 reviewsTableBody.innerHTML = '';
                 reviewsData.forEach(function (reviewData) {
                     var row = createReviewRow(reviewData);

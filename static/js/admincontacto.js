@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch('https://giakantas.pythonanywhere.com/api/contact_messages')
             .then(response => response.json())
             .then(contactMessagesData => {
+                // Ordenar los mensajes por id descendente
+                contactMessagesData.sort((a, b) => b.id - a.id);
+
                 contactMessagesTableBody.innerHTML = '';
                 contactMessagesData.forEach(function (contactMessageData) {
                     var row = createContactMessageRow(contactMessageData);

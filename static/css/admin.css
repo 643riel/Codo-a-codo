@@ -133,6 +133,11 @@ form textarea {
     font-size: 16px;
 }
 
+#comentarioInput, #precioInput {
+    height: 150px;
+}
+
+
 table {
     width: 80%;
     margin: 20px auto;

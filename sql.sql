@@ -3,8 +3,12 @@
 
 START TRANSACTION;
 
--- Eliminar la base de datos si existe
-USE default;
+USE giakantas$default;
+
+DROP TABLE IF EXISTS promos;
+DROP TABLE IF EXISTS contact_messages;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS reviews;
 
 -- Crear la tabla promos
 CREATE TABLE IF NOT EXISTS promos (

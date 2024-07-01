@@ -1,52 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var reviewsTableBody = document.querySelector("#reviewsTable tbody");
 
-    // Verificar si el usuario está autenticado
-    fetch("https://giakantas.pythonanywhere.com/api/current_user", {
-        method: "GET",
-        credentials: "include"
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.username) {
-                document.getElementById("nombreUsuario").textContent = data.username;
-                document.getElementById("nombreUsuarioInput").value = data.username; // Asignar el nombre de usuario al campo de entrada
-                fetchReviews();
-            } else {
-                window.location.href = "login.html"; // Redirigir a la página de inicio de sesión si no está autenticado
-            }
-        })
-        .catch(error => {
-            console.error("Error al verificar el usuario:", error);
-            window.location.href = "login.html"; // Redirigir a la página de inicio de sesión en caso de error
-        });
-
-    // Manejar el cierre de sesión
-    var logoutButton = document.getElementById("logoutButton");
-    if (logoutButton) {
-        logoutButton.addEventListener("click", function () {
-            fetch("https://giakantas.pythonanywhere.com/api/logout", {
-                method: "POST",
-                credentials: "include"
-            })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = "../index.html"; // Redirigir a index
-                    } else {
-                        console.error("Error al cerrar sesión:", response.statusText);
-                    }
-                })
-                .catch(error => console.error("Error al cerrar sesión:", error));
-        });
-    } else {
-        console.error("Elemento logoutButton no encontrado.");
-    }
-
     // Función para cargar las reseñas desde la base de datos
     function fetchReviews() {
         fetch('https://giakantas.pythonanywhere.com/api/reviews')
@@ -93,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteButton.addEventListener('click', function () {
             deleteReview(reviewData.id); // Pasar el ID correcto al eliminar
         });
-        actionsCell.appendChild(deleteButton);
-
-        //contenedor para los botones
         var buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
         buttonContainer.appendChild(editButton);
@@ -133,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error('Error al eliminar la reseña:', error));
     }
 
-
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
@@ -147,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('nombreUsuarioInput').value = capitalizeFirstLetter(nombreUsuario); // Mantener el nombre de usuario por defecto
         document.getElementById('comentarioInput').value = '';
     }
-
 
     // Manejar el envío del formulario de reseña
     var reviewForm = document.getElementById('reviewForm');

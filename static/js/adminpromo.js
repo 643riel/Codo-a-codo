@@ -1,51 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     var promosTableBody = document.querySelector("#promosTable tbody");
 
-    // Verificar si el usuario está autenticado
-    fetch("https://giakantas.pythonanywhere.com/api/current_user", {
-        method: "GET",
-        credentials: "include"
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.username) {
-            document.getElementById("nombreUsuario").textContent = data.username;
-            fetchPromos();
-        } else {
-            window.location.href = "login.html"; // Redirigir a la página de inicio de sesión si no está autenticado
-        }
-    })
-    .catch(error => {
-        console.error("Error al verificar el usuario:", error);
-        window.location.href = "login.html"; // Redirigir a la página de inicio de sesión en caso de error
-    });
-
-    // Manejar el cierre de sesión
-    var logoutButton = document.getElementById("logoutButton");
-    if (logoutButton) {
-        logoutButton.addEventListener("click", function() {
-            fetch("https://giakantas.pythonanywhere.com/api/logout", {
-                method: "POST",
-                credentials: "include"
-            })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = "../index.html"; // Redirigir a index
-                } else {
-                    console.error("Error al cerrar sesión:", response.statusText);
-                }
-            })
-            .catch(error => console.error("Error al cerrar sesión:", error));
-        });
-    } else {
-        console.error("Elemento logoutButton no encontrado.");
-    }
-
     // Función para cargar las promociones desde la base de datos
     function fetchPromos() {
         fetch('https://giakantas.pythonanywhere.com/api/promos')
@@ -102,8 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
         buttonContainer.appendChild(deleteButton);
         actionsCell.appendChild(buttonContainer);
     
-        row.appendChild(actionsCell);
-
         row.appendChild(actionsCell);
 
         return row;

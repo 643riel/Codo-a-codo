@@ -70,17 +70,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para manejar la eliminación de un mensaje de contacto
     function deleteContactMessage(id) {
-        fetch(`https://giakantas.pythonanywhere.com/api/contact_messages/${id}`, {
-            method: 'DELETE',
-            credentials: 'include'
-        })
-            .then(response => {
-                if (response.ok) {
-                    fetchContactMessages();
-                } else {
-                    console.error(`Error al eliminar el mensaje de contacto (${response.status}): ${response.statusText}`);
-                }
+        var confirmation = confirm("¿Estás seguro de que quieres eliminar este mensaje de contacto?");
+        if (confirmation) {
+            fetch(`https://giakantas.pythonanywhere.com/api/contact_messages/${id}`, {
+                method: 'DELETE',
+                credentials: 'include'
             })
-            .catch(error => console.error('Error al eliminar el mensaje de contacto:', error));
+                .then(response => {
+                    if (response.ok) {
+                        fetchContactMessages();
+                    } else {
+                        console.error(`Error al eliminar el mensaje de contacto (${response.status}): ${response.statusText}`);
+                    }
+                })
+                .catch(error => console.error('Error al eliminar el mensaje de contacto:', error));
+        } else {
+            console.log("Eliminación cancelada.");
+        }
     }
+    
 });

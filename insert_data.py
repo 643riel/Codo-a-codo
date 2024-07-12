@@ -80,9 +80,7 @@ def insert_data():
     example_reviews = [
         Review(nombreUsuario='✨GABRIEL IAKANTAS✨', comentario='El mejor bar de Argentina lejos. Muy barato todo. Excelente servicio. Vengan.'),
         Review(nombreUsuario='Juan', comentario='La cerveza estaba caliente.'),
-        Review(nombreUsuario='✨GABRIEL IAKANTAS✨', comentario='La cervezas son heladas y muy ricas.'),
         Review(nombreUsuario='Ana', comentario='Es una mugre esto.'),
-        Review(nombreUsuario='✨GABRIEL IAKANTAS✨', comentario='La limpieza del bar es destacable. Se puede comer hasta del piso sin ningún inconveniente.')
     ]
 
     admin_user = User(

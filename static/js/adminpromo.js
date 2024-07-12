@@ -75,17 +75,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para manejar la eliminación de una promoción
     function deletePromo(id) {
-        fetch(`https://giakantas.pythonanywhere.com/api/promos/${id}`, {
-            method: 'DELETE',
-        })
-            .then(response => {
-                if (response.ok) {
-                    fetchPromos(); // Recargar las promociones después de eliminar
-                } else {
-                    console.error('Error al eliminar la promoción:', response.statusText);
-                }
+        var confirmation = confirm("¿Estás seguro de que quieres eliminar esta promoción?");
+        if (confirmation) {
+            fetch(`https://giakantas.pythonanywhere.com/api/promos/${id}`, {
+                method: 'DELETE',
             })
-            .catch(error => console.error('Error al eliminar la promoción:', error));
+                .then(response => {
+                    if (response.ok) {
+                        fetchPromos(); // Recargar las promociones después de eliminar
+                    } else {
+                        console.error('Error al eliminar la promoción:', response.statusText);
+                    }
+                })
+                .catch(error => console.error('Error al eliminar la promoción:', error));
+        } else {
+            console.log("Eliminación cancelada.");
+        }
     }
 
     // Manejar el envío del formulario de promoción

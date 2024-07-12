@@ -69,19 +69,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para manejar la eliminación de una reseña
     function deleteReview(id) {
-        fetch(`https://giakantas.pythonanywhere.com/api/reviews/${id}`, {
-            method: 'DELETE'
-        })
-            .then(response => {
-                if (response.ok) {
-                    fetchReviews(); // Recargar las reseñas después de eliminar
-                } else {
-                    console.error('Error al eliminar la reseña:', response.statusText);
-                }
+        var confirmation = confirm("¿Estás seguro de que quieres eliminar esta reseña?");
+        if (confirmation) {
+            fetch(`https://giakantas.pythonanywhere.com/api/reviews/${id}`, {
+                method: 'DELETE'
             })
-            .catch(error => console.error('Error al eliminar la reseña:', error));
+                .then(response => {
+                    if (response.ok) {
+                        fetchReviews(); // Recargar las reseñas después de eliminar
+                    } else {
+                        console.error('Error al eliminar la reseña:', response.statusText);
+                    }
+                })
+                .catch(error => console.error('Error al eliminar la reseña:', error));
+        } else {
+            console.log("Eliminación cancelada.");
+        }
     }
-
+    
     // Manejar el envío del formulario de reseña
     var reviewForm = document.getElementById('reviewForm');
     reviewForm.addEventListener('submit', function (event) {
